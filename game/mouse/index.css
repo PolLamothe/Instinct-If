@@ -1,0 +1,64 @@
+#souris_photo{
+    width: 10vw;
+    position: absolute;
+    transition-duration: 0.5s;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%,-50%);
+}
+#draggable{
+    position: absolute;
+    width: 7.5vw;
+    opacity: 20%;
+    right: 7.5vw;
+}
+#wolf{
+    position: absolute;
+    width: 10vw;
+    display: none;
+    transition-duration: 1s;
+}
+html,body{
+    padding: 0px;
+}
+html{
+    background-color: lightgreen;
+}
+#background{
+    z-index: -1;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    opacity: 80%;
+}
+h1{
+    position: absolute;
+    top: 5vh;
+    left: 50vw;
+    transform: translate(-50%,-50%);
+    font-size: 5vw;
+    color: white;
+    font-family: Roboto;
+    background-color: lightblue;
+    border-radius: 20px;
+    padding: 2vw ;
+    display: none;
+}
+#singe{
+    position: absolute;
+    width: 10vw;
+    transition-duration: 1s;
+    bottom: 5vh;
+}
+p{
+    position: absolute;
+    background-color: white;
+    width: fit-content;
+    font-family: Roboto;
+    padding: 0.5vw;
+    border-radius: 30px;
+    z-index: 2;
+    bottom: 22vh;
+}
