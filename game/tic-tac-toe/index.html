@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="./index.css"> 
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    <h1>Tic Tac Toe</h1>
+    <img src="./assets/reload.png" id="reloadIcon">
+    <h1 id="annonce"></h1>
+    <div id="globalGame">
+        <div class="row">
+            <div class="case" style="border-top-left-radius: 40px;"><p id="A1"></p></div>
+            <div class="case"><p id="A2"></p></div>
+            <div class="case" style="border-top-right-radius: 40px;"><p id="A3"></p></div>
+        </div>
+        <div class="row">
+            <div class="case"><p id="B1"></p></div>
+            <div class="case"><p id="B2"></p></div>
+            <div class="case"><p id="B3"></p></div>
+        </div>
+        <div class="row">
+            <div class="case" style="border-bottom-left-radius: 40px;"><p id="C1"></p></div>
+            <div class="case"><p id="C2"></p></div>
+            <div class="case" style="border-bottom-right-radius: 40px;"><p id="C3"></p></div>
+        </div> 
+    </div>
+    <div id="npcDiv">
+        <p id="speakText">Tu ne pourras pas gagner</p>
+        <div>
+            <img src="./assets/hater.webp" id="hater" class="npc">
+            <p contenteditable="true" id="npcState">Méchante Personne</p>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
