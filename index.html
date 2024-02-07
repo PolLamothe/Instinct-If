@@ -5,46 +5,49 @@
     <title>Instinct If</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
 </head>
 <body>
     <header>
-        <h3 class="title">Instinct If { }</h3>
-        <nav>
-            <div class="nav__item">
-                Item1
-                <span class="material-symbols-rounded">arrow_drop_down</span>
-                <ul class="nav__menu">
-                    <li><a>Jeux 1</a></li>
-                    <li><a>Jeux 2</a></li>
-                    <li><a>Jeux 3</a></li>
-                    <li><a>Jeux 4</a></li>
-                </ul>
-            </div>
-            <div class="nav__item">
-                Item2
-                <span class="material-symbols-rounded">arrow_drop_down</span>
-                <ul class="nav__menu">
-                    <li><a>Jeux 1</a></li>
-                    <li><a>Jeux 2</a></li>
-                    <li><a>Jeux 3</a></li>
-                    <li><a>Jeux 4</a></li>
-                </ul>
-            </div>
-            <div class="nav__item">
-                Item3
-                <span class="material-symbols-rounded">arrow_drop_down</span>
-                <ul class="nav__menu">
-                    <li><a>Jeux 1</a></li>
-                    <li><a>Jeux 2</a></li>
-                    <li><a>Jeux 3</a></li>
-                    <li><a>Jeux 4</a></li>
-                </ul>
-            </div>
-        </nav>
+        <div class="nav__item active">
+            <span class="material-symbols-rounded" id="nav-home">home</span>
+        </div>
+        <div class="nav__item">
+            <span class="material-symbols-rounded" id="nav-login">person</span>
+        </div>
+        <div class="nav__item">
+            <span class="material-symbols-rounded" id="nav-explore">explore</span>
+        </div>
     </header>
-    <div class="card"><a href="./game/mouse/index.html"><h3>Mistigri la sourie</h3></a></div>
-    <div class="card"><a href="./game/tic-tac-toe/index.html"><h3>Tic-Tac-Toe</h3></a></div>
+    <main>
+        <h1 class="title">Instinct If { }</h1>
+        <section id="home">
+            <div class="bestGames">
+                <div class="card" id="mistigri">
+                    <div class="card__title">
+                        <p>Mistigri la souris</p>
+                        <span class="material-symbols-rounded play play" id="souris">play_circle</span>
+                    </div>
+                </div>
+                <div class="card" id="tic-tac-toe">
+                    <div class="card__title">
+                        <p>Tic-tac-toe</p>
+                        <span class="material-symbols-rounded play" id="ttt">play_circle</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="game">
+            <iframe
+                    class="game-screen"
+                    title="Instinc If game"
+                    src="">
+            </iframe>
+        </section>
+    </main>
     <script src="js/index.js"></script>
 </body>
 </html>

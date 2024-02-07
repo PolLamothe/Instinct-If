@@ -178,7 +178,7 @@ function updateAnnonce(){
         $('#annonce').css("display","inherit")
         $("#annonce").css("color","#F75D59")
     }else if (checkGame(game) == false){
-        $('#annonce').html("Il y'a égalité !")
+        $('#annonce').html("Il y a égalité !")
         $('#annonce').css("display","inherit")
         $("#annonce").css("color","white")
     }else{
