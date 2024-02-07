@@ -17,9 +17,12 @@
     width: 10vw;
     display: none;
     transition-duration: 1s;
+    z-index: 2;
 }
 html,body{
     padding: 0px;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 html{
     background-color: lightgreen;

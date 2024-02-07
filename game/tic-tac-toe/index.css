@@ -1,10 +1,9 @@
 #globalGame{
     height: 60vh;
     width: 60vh;
-    left: 50vw;
-    top: 60vh;
-    transform: translate(-50%, -50%);
-    position: absolute;
+    margin-left: 10vw;
+    margin-top: 60vh;
+    transform: translateY(-50%);
 }
 .row{
     display: flex;
@@ -27,11 +26,7 @@
     font-family: Roboto;
 }
 #reloadIcon{
-    position: absolute;
     width: 5vw;
-    left: 50vw;
-    transform: translate(-50%, 0);
-    top: 12.5vh;
     padding: 1vw;
     border-radius: 20% !important;
     overflow: hidden;
@@ -51,10 +46,12 @@ h1{
     font-family: Roboto;
     font-size: 50px;
     color: white;
+    margin: 0px;
 }
 #npcDiv{
     position: absolute;
     right: 5vw;
+    top: 40vh;
     display: flex;
     align-items: center;
 }
@@ -86,7 +83,7 @@ h1{
 #annonce{
     position: absolute;
     left: 50vw;
-    top: 50vh;
+    top: 60vh;
     transform: translate(-50%, -50%);
     background-color: lightblue;
     z-index: 2;
@@ -95,4 +92,14 @@ h1{
     font-size: 100px;
     display: none;
     min-width: 50vw;
+}
+#topDiv{
+    position: absolute;
+    left: 50vw;
+    top: 5vh;
+    transform: translateX(-50%);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
 }
