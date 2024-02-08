@@ -122,7 +122,13 @@ main {
     border-radius: 35px;
     border: none;
 }
-
+#snake{
+    background: url("../assets/Snake.png") no-repeat;
+    background-size: contain;
+}
+#snake .card__title {
+    background: linear-gradient(to top, rgba(255, 0, 0, 1) 60%, rgba(255, 0, 0, 0.80));
+}
 #login {
     display: none;
 }

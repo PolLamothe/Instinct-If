@@ -54,6 +54,9 @@ function launcher(game) {
         case "ttt":
             frameLauncher.src = "./game/tic-tac-toe/index.html"
             break
+        case "Snake":
+            frameLauncher.src = "./game/snake/index.html"
+            break
     }
 }
 
