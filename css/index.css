@@ -33,7 +33,7 @@ header .material-symbols-rounded {
     font-size: 32px !important;
     transition: color .3s;
 }
-header .active .material-symbols-rounded {
+header .material-symbols-rounded.active {
     color: #ffffff;
 }
 header .material-symbols-rounded:hover {
@@ -121,4 +121,8 @@ main {
     aspect-ratio: 16/9;
     border-radius: 35px;
     border: none;
+}
+
+#login {
+    display: none;
 }
