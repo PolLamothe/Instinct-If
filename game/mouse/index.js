@@ -44,3 +44,5 @@ function moveElement(e) {
     $("h1").css("display","inline")
   }
 }
+
+document.getElementById('background').ondragstart = function() { return false; };
