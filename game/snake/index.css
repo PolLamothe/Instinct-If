@@ -18,3 +18,32 @@ body{
     overflow-y: hidden;
     overflow-x: hidden;
 }
+h1{
+    text-align: center;
+    font-size: 50px;
+    background-color: lightblue;
+    position: absolute;
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 100vw;
+    height: fit-content;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    align-items: center;
+    justify-content: center ;
+    font-family: Roboto;
+    display: none;
+    flex-direction: column;
+}
+#rejouer{
+    width: 15%;
+    height: 50%;
+    background-color: lightgreen;
+    border: none;
+    font-size: 20px;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    cursor: pointer;
+}
