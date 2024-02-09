@@ -60,6 +60,24 @@ main {
     margin-bottom: 32px;
 }
 
+.git {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 4px;
+    color: #ffffff;
+    font-size: 16px;
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+}
+
+.git svg {
+    width: 20px;
+    height: 20px;
+}
+
+
 .bestGames {
     display: flex;
     gap: 32px;
