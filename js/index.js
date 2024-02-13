@@ -57,6 +57,9 @@ function launcher(game) {
         case "Snake":
             frameLauncher.src = "./game/snake/index.html"
             break
+        case "Tetris":
+            frameLauncher.src = "./game/tetris/index.html"
+            break
     }
     frameLauncher.focus()
 }

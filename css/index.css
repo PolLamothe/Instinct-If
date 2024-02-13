@@ -150,3 +150,15 @@ main {
 #login {
     display: none;
 }
+.bestGames{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#tetris .card__title {
+    background: linear-gradient(to top, rgba(255, 165, 0, 1) 60%, rgba(255, 165, 0, 0.80));
+}
+#tetris{
+    background: url("../assets/Tetris.png") no-repeat;
+    background-size: cover;
+}
