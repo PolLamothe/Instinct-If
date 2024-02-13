@@ -8,32 +8,71 @@ for (i=1;i <= positionSum;i++){
 var Snake = [0,1]
 var Food = Math.floor(Math.random()*positionSum)
 
-$('#snake'+Food).css('background-color','red')
+let score = 0
+let scoreDisplay = document.querySelector("#score_num")
+scoreDisplay.innerText = score
 
 var direction = "right"
 var directionUpdated = true
 
+function switchStyle(el, cName) {
+    el.style = ""
+    switch (cName) {
+        case "food":
+            el.style = "background: url('./assets/apple.png') no-repeat center/contain;"
+            break
+        case "head":
+            el.style = "background: #4545e3;"
+            switch (direction) {
+                case "right":
+                    el.style = "background: conic-gradient(from 0.1875turn, transparent 45deg, #4545e3 45deg);border-radius: 0 12px 12px 0;"
+                    break
+                case "left":
+                    el.style = "background: conic-gradient(from 0.6875turn, transparent 45deg, #4545e3 45deg);border-radius: 12px 0 0 12px;"
+                    break
+                case "down":
+                    el.style = "background: conic-gradient(from 0.4375turn, transparent 45deg, #4545e3 45deg);border-radius: 0 0 12px 12px;"
+                    break
+                case "up":
+                    el.style = "background: conic-gradient(from -0.0625turn, transparent 45deg, #4545e3 45deg);border-radius: 12px 12px 0 0;"
+                    break
+            }
+            break
+        case "tail":
+            el.style = "background: #4545e3;"
+            break
+        case "body":
+            el.style = "background: #4545e3;"
+            break
+        case "trsp":
+            el.style = "background: transparent;"
+            break
+    }
+
+}
+
+switchStyle(document.querySelector('#snake'+Food), "food")
+
 onkeydown = updateKey
 
+$('#rejouer').on("click",replay)
 function loose(){
-    $("#annonce").text("You Loose")
     $("#annonce").css('display','flex')
-    $("#annonce").append("<button id='rejouer'>Rejouer</button>")
-    clearInterval(gameReapeat)
-    $('#rejouer').on("click",replay)
+    clearInterval(gameRepeat)
 }
 
 function replay(){
-    $('#annonce').empty()
     $("#annonce").css('display','none')
     Snake = [0,1]
+    score = 0
+    scoreDisplay.innerText = score
     direction = "right"
     directionUpdated = true
     Food = Math.floor(Math.random()*positionSum)
     while(Snake.includes(Food)){
         Food = Math.floor(Math.random()*positionSum)
     }
-    gameReapeat = setInterval(updateSnake,100)
+    gameRepeat = setInterval(updateSnake,100)
 }
 
 function updateKey(event) {
@@ -51,13 +90,17 @@ function updateKey(event) {
 
 function updateSnakeGraphics(){
     for (i=1;i<=positionSum;i++){
-        if(Snake.includes(i)){
-            $('#snake'+i).css('background-color','white')
-        }else if (i != Food){
-            $('#snake'+i).css('background-color','black')
+        if (i === Snake[0]) {
+            switchStyle(document.querySelector('#snake'+i), "tail")
+        } else if (i === Snake[Snake.length-1]) {
+            switchStyle(document.querySelector('#snake'+i), "head")
+        } else if(Snake.includes(i)){
+            switchStyle(document.querySelector('#snake'+i), "body")
+        } else if (i !== Food){
+            switchStyle(document.querySelector('#snake'+i), "trsp")
         }
     }
-    $('#snake'+Food).css('background-color','red')
+    switchStyle(document.querySelector('#snake'+Food), "food")
 }
 
 function updateSnake(){
@@ -74,28 +117,32 @@ function updateSnake(){
     if(Snake.includes(Snake[Snake.length-1]+change)){
         loose()
     }
-    if(Snake.length == positionSum){
+    if(Snake.length === positionSum){
         alert('You Win')
         clearInterval(gameReapeat)
     }
     Snake.push(Snake[Snake.length-1]+change)
-    if(change == line ||change == -line){
+    if(change === line ||change === -line){
         if (Snake[Snake.length-1] < 0 || Snake[Snake.length-1] > positionSum){
             loose()
         }
-    }else if (change == 1 || change == -1){
-        if(change == 1){
-            if((Snake[Snake.length-1]+change)%line == 2){
+    }else if (change === 1 || change === -1){
+        if(change === 1){
+            if((Snake[Snake.length-1]+change)%line === 2){
                 loose()
             }
         }else{
-            if((((Snake[Snake.length-1]+change))%line) == line-1){
-            loose()
-        }
+            if((((Snake[Snake.length-1]+change))%line) === line-1){
+                loose()
+            } else if (Snake[Snake.length-1]+change < 0) {
+                loose()
+            }
         }
     }
-    if (Snake[Snake.length-1] == Food){
-        $('#snake'+Food).css('background-color','white')
+    if (Snake[Snake.length-1] === Food){
+        switchStyle(document.querySelector('#snake'+Food), "body")
+        score++
+        scoreDisplay.innerText = score
         Food = Math.floor(Math.random()*positionSum)
         while(Snake.includes(Food)){
             Food = Math.floor(Math.random()*positionSum)
@@ -107,4 +154,4 @@ function updateSnake(){
     updateSnakeGraphics()
 }
 
-var gameReapeat = setInterval(updateSnake,100)
+let gameRepeat = setInterval(updateSnake,100)
