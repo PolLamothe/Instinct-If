@@ -58,6 +58,7 @@ function launcher(game) {
             frameLauncher.src = "./game/snake/index.html"
             break
     }
+    frameLauncher.focus()
 }
 
 let playBtn = document.querySelectorAll(".play")
