@@ -134,7 +134,7 @@ const rotateMap = [
         [
             [0,0,0,0],
             [0,0,0,0],
-            [1,1,1,1],
+            [1,1,1,0],
             [1,0,0,0]
         ],
     ],
@@ -185,12 +185,10 @@ const color = {
     1 : "blue",
     2 : "yellow",
     3 : "green",
-    4 : "yellow",
+    4 : "red",
     5 : "purple",
     6 : "orange",
     7 : "pink",
-    8 : "pink",
-    9 : "red",
 }
 
 function changeStruct(struct){
@@ -218,7 +216,6 @@ function rotatePiece(){
             changeStruct(allPiece[movingPiece.type-1])
         }else{
             movingPiece.rotateNumber++
-            console.log(rotateMap[movingPiece.type-1][movingPiece.rotateNumber])
             changeStruct(rotateMap[movingPiece.type-1][movingPiece.rotateNumber])
         }
     }
@@ -324,6 +321,34 @@ function freeze(){
             }
         }
     }
+    for(i in ground){
+        var min = i-(i%line)+1
+        var max = min+line-1
+        var state = true
+        for(x = min;x<=max;x++){
+            if(ground[x] == undefined){
+                state = false
+            }
+        }
+        if(state){
+            for(x = min;x<=max;x++){
+                delete ground[x]
+            }
+            groundCopy = {...ground}
+            var allGround  = Object.keys(groundCopy).sort().reverse()
+            for(x in allGround){
+                if(allGround[x] < min){
+                    var temp = groundCopy[allGround[x]]
+                    delete ground[allGround[x]]
+                    ground[parseInt(allGround[x])+line] = temp
+                }
+            }
+            for(i in ground){   
+                $("#case"+i).css("background-color",color[ground[i]+1])
+            }
+            return
+        }
+    }
     for(i in ground){   
         $("#case"+i).css("background-color",color[ground[i]+1])
     }
@@ -363,7 +388,7 @@ function draw(){
 
 function updatePiece(){
     if(movingPiece.type == 0){
-        var pieceChoice = Math.floor(Math.random() * allPiece.length-1)
+        var pieceChoice = Math.floor(Math.random() * (allPiece.length-1))
         var newPiece = allPiece[pieceChoice]
         movingPiece.type = (pieceChoice+1)
         var tempData = []
