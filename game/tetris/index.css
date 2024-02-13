@@ -1,0 +1,21 @@
+.case{
+    width: 4vh;
+    height: 4vh;
+    background-color: black;
+}
+#centerGame{
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+#globalGame{
+    width: 110vh;
+    margin-left: 50vw;
+    transform: translateX(-50%);
+}
+body,html{
+    padding: 0px;
+    margin: 0px;
+}
