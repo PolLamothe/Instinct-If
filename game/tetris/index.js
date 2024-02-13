@@ -199,9 +199,16 @@ function changeStruct(struct){
             temp[i].push(0)
         }
     }
+    var state = false
+    if(movingPiece.bottomleft%line in [1,2,3]){
+        return
+    }
     for (i = 1;i<=4;i++){
         for(x = 1;x<=4;x++){
             if(struct[4-i][4-x] != 0){
+                if(ground[struct[4-i][4-x] + movingPiece.bottomleft - i*line + x - 4] != undefined ){
+                    return
+                }
                 temp[4-i][4-x] = struct[4-i][4-x] + movingPiece.bottomleft - i*line + x - 4
             }
         }
@@ -222,6 +229,10 @@ function rotatePiece(){
 }
 
 function decalPiece(pas){
+    var secur = 1
+    if(pas==16){
+        secur = 2
+    }
     for(i=0;i<movingPiece.data.length;i++){
         for(x=0;x<movingPiece.data[i].length;x++){  
             if(movingPiece.data[i][x] != 0){
@@ -231,20 +242,29 @@ function decalPiece(pas){
                 if((movingPiece.data[i][x] + pas)%line == 0 && pas == -1){
                     return
                 }
-                if(ground[movingPiece.data[i][x] + pas] != undefined){
+                if(ground[movingPiece.data[i][x] + pas*secur] != undefined){
+                    return
+                }else if(movingPiece.data[i][x] + pas*secur > caseNumber){
                     return
                 }
             }
         }
     }
-    movingPiece.bottomleft += pas
-    for(i = 0;i< movingPiece.data.length;i++){
-        for(x = 0;x< movingPiece.data[i].length;x++){
-            if( movingPiece.data[i][x] != 0){
-                movingPiece.data[i][x] += pas
+    let temp = deepCopy(movingPiece.data)
+    for(i = 0;i<temp.length;i++){
+        for(x = 0;x< temp[i].length;x++){
+            if( temp[i][x] != 0){
+                if(ground[temp[i][x]+pas] != undefined || temp[i][x]+pas > caseNumber){
+                    freeze()
+                    movingPiece.reset()
+                    return
+                }
+                temp[i][x] += pas
             }
         }
     }
+    movingPiece.bottomleft += pas
+    movingPiece.data = [...temp]
 }
 
 function eareaseAll(){
@@ -275,6 +295,8 @@ onkeydown = (event) => {
             fall()
         }else if(event.key == "r"){
             rotatePiece()
+        }else if (event.key == "ArrowDown"){
+            decalPiece(line)
         }
         eareaseAll()
     }
@@ -355,25 +377,22 @@ function freeze(){
 }
 
 function move(){
-    for(i = 0;i< movingPiece.data.length;i++){
-        for(x = 0;x< movingPiece.data[i].length;x++){
-            if( movingPiece.data[i][x] != 0){
-                movingPiece.data[i][x] += line
-            }
-        }
-    }
-    movingPiece.bottomleft += line
-    for (i = 0;i<movingPiece.data.length;i++){
-        for(x = 0;x<movingPiece.data[i].length;x++){
-            if(movingPiece.data[i][x] != 0){
-                var current = movingPiece.data[i][x]
-                if(ground[current+line] != undefined || current+line > caseNumber){
+    let temp = deepCopy(movingPiece.data)
+    for(i = 0;i< temp.length;i++){
+        for(x = 0;x< temp[i].length;x++){
+            if( temp[i][x] != 0){
+                if(ground[temp[i][x]+line] != undefined || temp[i][x]+line > caseNumber){
                     freeze()
                     movingPiece.reset()
+                    return
                 }
+                temp[i][x] += line
             }
         }
     }
+    movingPiece.bottomleft += line 
+    movingPiece.data = [...temp]
+    console.log('seted')
 }
 
 function draw(){
@@ -397,6 +416,10 @@ function updatePiece(){
             for(x = 0;x<newPiece[i].length;x++){
                 if(newPiece[i][x] != 0){
                     tempData[i].push(middle+x+(line*i))
+                    if(ground[middle+x+(line*i)] != undefined){
+                        alert("Game Over")
+                        return
+                    }
                 }else{
                     tempData[i].push(0)
                 }
@@ -410,3 +433,25 @@ function updatePiece(){
 }
 
 setInterval(updatePiece,750)
+
+function deepCopy(obj) {
+    if (typeof obj !== 'object' || obj === null) {
+        return obj;
+    }
+    
+    let copy;
+    if (Array.isArray(obj)) {
+        copy = [];
+        for (let i = 0; i < obj.length; i++) {
+            copy[i] = deepCopy(obj[i]);
+        }
+    } else {
+        copy = {};
+        for (let key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                copy[key] = deepCopy(obj[key]);
+            }
+        }
+    }
+    return copy;
+}
