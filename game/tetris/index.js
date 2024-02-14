@@ -45,7 +45,7 @@ const allPiece = [
         [1,0,0,0],
         [1,1,0,0],
         [1,0,0,0],
-    ]
+    ],
 ]
 
 const rotateMap = [
@@ -273,13 +273,13 @@ function eareaseAll(){
         for(x = 0;x<movingPiece.data.length;x++){
             for(y = 0;y<movingPiece.data[x].length;y++){
                 if(movingPiece.data[x][y] == i){
-                    $("#case"+i).css("background-color",color[movingPiece.type+1])
+                    $("#case"+i).css("background-color",color[movingPiece.type])
                 }
             }
         }
         for(x in ground){
             if(x == i){
-                $("#case"+i).css("background-color",color[ground[x]+1])
+                $("#case"+i).css("background-color",color[ground[x]])
             }
         }
     }
@@ -366,13 +366,12 @@ function freeze(){
                 }
             }
             for(i in ground){   
-                $("#case"+i).css("background-color",color[ground[i]+1])
+                $("#case"+i).css("background-color",color[ground[i]])
             }
-            return
         }
     }
     for(i in ground){   
-        $("#case"+i).css("background-color",color[ground[i]+1])
+        $("#case"+i).css("background-color",color[ground[i]])
     }
 }
 
@@ -392,14 +391,13 @@ function move(){
     }
     movingPiece.bottomleft += line 
     movingPiece.data = [...temp]
-    console.log('seted')
 }
 
 function draw(){
     for(i = 0;i< movingPiece.data.length;i++){
         for(x = 0;x< movingPiece.data[i].length;x++){
             if( movingPiece.data[i][x] != 0){
-                $("#case"+(movingPiece.data[i][x])).css("background-color",color[movingPiece.type+1])
+                $("#case"+(movingPiece.data[i][x])).css("background-color",color[movingPiece.type])
             }
         }
     }
@@ -407,7 +405,7 @@ function draw(){
 
 function updatePiece(){
     if(movingPiece.type == 0){
-        var pieceChoice = Math.floor(Math.random() * (allPiece.length-1))
+        var pieceChoice = Math.floor(Math.random() * (allPiece.length))
         var newPiece = allPiece[pieceChoice]
         movingPiece.type = (pieceChoice+1)
         var tempData = []
