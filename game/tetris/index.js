@@ -2,6 +2,7 @@ const caseNumber = 400
 const middle = 8
 const line = 16
 const background = "black"
+var timer = 500
 
 const allPiece = [
     [
@@ -373,6 +374,7 @@ function freeze(){
     for(i in ground){   
         $("#case"+i).css("background-color",color[ground[i]])
     }
+    piecePlaced++
 }
 
 function move(){
@@ -403,6 +405,12 @@ function draw(){
     }
 }
 
+var count = 0
+
+var piecePlaced = 0
+
+var step = 3
+
 function updatePiece(){
     if(movingPiece.type == 0){
         var pieceChoice = Math.floor(Math.random() * (allPiece.length))
@@ -426,11 +434,25 @@ function updatePiece(){
         movingPiece.data = tempData
     }
     erease()
-    move()
+    if(count >= 10){
+        move()
+        count -= 10
+    }
+    count += step
+    if(piecePlaced == 10){
+        step++
+        piecePlaced ++
+    }else if(piecePlaced == 30){
+        step++
+        piecePlaced ++
+    }else if(piecePlaced == 60){
+        step++
+        piecePlaced ++
+    }
     draw()
 }
 
-setInterval(updatePiece,750)
+setInterval(updatePiece,timer/7)
 
 function deepCopy(obj) {
     if (typeof obj !== 'object' || obj === null) {
