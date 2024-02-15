@@ -139,6 +139,7 @@ main {
     aspect-ratio: 16/9;
     border-radius: 35px;
     border: none;
+    height: max-content;
 }
 #snake{
     background: url("../assets/Snake.png") no-repeat;

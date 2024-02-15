@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tetris</title>
     <link href="./index.css" rel="stylesheet">
-    <script src="./index.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script></head>
 <body>
     <div id="globalGame">
         <div class="controls">
-            <button onclick="pauseGame()">PAUSE</button>
-            <button onclick="playGame()">PLAY</button>
+            <button id="pause_button">PAUSE</button>
+            <button  id="play_button">PLAY</button>
             <p class="score__display">Score : <span id="scoreTetris"></span></p>
         </div>
         <div id="centerGame">
 
         </div>
     </div>
+    <script src="./index.js" type="module"></script>
 </body>
 </html>

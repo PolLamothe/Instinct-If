@@ -1,172 +1,28 @@
+import * as pieces from "./pieces.js"
+
+const allPiece = pieces.allPiece
+
+const rotateMap = pieces.rotateMap
+
 const caseNumber = 400
 const middle = 8
 const line = 16
+
 const backgroundStyle = {
     "background-color": "#232323",
     "border": "solid #3a3a3a 1px"
 }
-var timer = 500
-
 let score = 0
 let scoreDisplay = document.querySelector('#scoreTetris')
 scoreDisplay.innerText = score
 
-const allPiece = [
-    [
-        [0,0,0,0,],
-        [0,0,0,0,],
-        [0,0,0,0,],
-        [1,1,1,1,],
-    ],
-    [
-        [0,0,0,0],
-        [0,0,0,0],
-        [1,1,0,0],
-        [1,1,0,0],
-    ],
-    [
-        [0,0,0,0],
-        [0,0,0,0],
-        [1,1,0,0],
-        [0,1,1,0],
-    ],
-    [
-        [0,0,0,0],
-        [0,0,0,0],
-        [0,1,1,0],
-        [1,1,0,0],
-    ],
-    [
-        [0,0,0,0],
-        [1,1,0,0],
-        [1,0,0,0],
-        [1,0,0,0],
-    ],
-    [
-        [0,0,0,0],
-        [1,1,0,0],
-        [0,1,0,0],
-        [0,1,0,0],
-    ],
-    [
-        [0,0,0,0],
-        [1,0,0,0],
-        [1,1,0,0],
-        [1,0,0,0],
-    ],
-]
+const timer = 500
 
-const rotateMap = [
-    [
-        [
-            [1,0,0,0],
-            [1,0,0,0],
-            [1,0,0,0],
-            [1,0,0,0]
-        ]
-    ],
-    [],
-    [
-        [
-            [0,0,0,0],
-            [0,1,0,0],
-            [1,1,0,0],
-            [1,0,0,0],
-        ],
-        [
-            [0,0,0,0],
-            [0,0,0,0],
-            [1,1,0,0],
-            [0,1,1,0]
-        ],
-        [
-            [0,0,0,0],
-            [0,1,0,0],
-            [1,1,0,0],
-            [1,0,0,0]
-        ]
-    ],
-    [
-        [
-            [0,0,0,0],
-            [1,0,0,0],
-            [1,1,0,0],
-            [0,1,0,0]
-        ],
-        [
-            [0,0,0,0],
-            [0,0,0,0],
-            [0,1,1,0],
-            [1,1,0,0]
-        ],
-        [
-            [0,0,0,0],
-            [1,0,0,0],
-            [1,1,0,0],
-            [0,1,0,0]
-        ],
-    ],
-    [
-        [
-            [0,0,0,0],
-            [0,0,0,0],
-            [1,1,1,0],
-            [0,0,1,0]
-        ],
-        [
-            [0,0,0,0],
-            [0,1,0,0],
-            [0,1,0,0],
-            [1,1,0,0]
-        ],
-        [
-            [0,0,0,0],
-            [0,0,0,0],
-            [1,0,0,0],
-            [1,1,1,0]
-        ],
-    ],
-    [
-        [
-            [0,0,0,0],
-            [0,0,0,0],
-            [0,0,1,0],
-            [1,1,1,0]
-        ],
-        [
-            [0,0,0,0],
-            [1,0,0,0],
-            [1,0,0,0],
-            [1,1,0,0]
-        ],
-        [
-            [0,0,0,0],
-            [0,0,0,0],
-            [1,1,1,0],
-            [1,0,0,0]
-        ],
-    ],
-    [
-        [
-            [0,0,0,0],
-            [0,0,0,0],
-            [1,1,1,0],
-            [0,1,0,0]
-        ],
-        [
-            [0,0,0,0],
-            [0,1,0,0],
-            [1,1,0,0],
-            [0,1,0,0]
-        ],
-        [
-            [0,0,0,0],
-            [0,0,0,0],
-            [0,1,0,0],
-            [1,1,1,0]
-        ],
-    ],
-]
+var count = 0
+
+var piecePlaced = 0
+
+var tempAmount = 6
 
 class MovingPiece {
     type = 0
@@ -183,7 +39,7 @@ class MovingPiece {
 }
 var movingPiece = new MovingPiece()
 
-for(i = 1; i <= caseNumber; i++){
+for(var i = 1; i <= caseNumber; i++){
     $('#centerGame').append('<div class="case" id="case'+i+'"></div>')
 }
 
@@ -222,23 +78,22 @@ const blocStyle = {
 
 function changeStruct(struct){
     var temp = []
-    for (i = 0;i<4;i++){
+    for (var i = 0;i<4;i++){
         temp.push([])
-        for(x = 0;x<4;x++){
+        for(var x = 0;x<4;x++){
             temp[i].push(0)
         }
     }
-    var state = false
     if(movingPiece.bottomleft%line in [1,2,3]){
         return
     }
-    for (i = 1;i<=4;i++){
-        for(x = 1;x<=4;x++){
+    for (var i = 1;i<=4;i++){
+        for(var x = 1;x<=4;x++){
             if(struct[4-i][4-x] != 0){
-                if(ground[struct[4-i][4-x] + movingPiece.bottomleft - i*line + x - 4] != undefined ){
+                if(ground[struct[4-i][4-x] + movingPiece.bottomleft - i*line + (4-x)] != undefined ){
                     return
                 }
-                temp[4-i][4-x] = struct[4-i][4-x] + movingPiece.bottomleft - i*line + x - 4
+                temp[4-i][4-x] = struct[4-i][4-x] + movingPiece.bottomleft - i*line + (4-x)
             }
         }
     }
@@ -262,8 +117,8 @@ function decalPiece(pas){
     if(pas==16){
         secur = 2
     }
-    for(i=0;i<movingPiece.data.length;i++){
-        for(x=0;x<movingPiece.data[i].length;x++){  
+    for(var i=0;i<movingPiece.data.length;i++){
+        for(var x=0;x<movingPiece.data[i].length;x++){  
             if(movingPiece.data[i][x] != 0){
                 if((movingPiece.data[i][x] + pas)%line == 1 && pas == 1){
                     return
@@ -280,8 +135,8 @@ function decalPiece(pas){
         }
     }
     let temp = deepCopy(movingPiece.data)
-    for(i = 0;i<temp.length;i++){
-        for(x = 0;x< temp[i].length;x++){
+    for(var i = 0;i<temp.length;i++){
+        for(var x = 0;x< temp[i].length;x++){
             if( temp[i][x] != 0){
                 if(ground[temp[i][x]+pas] != undefined || temp[i][x]+pas > caseNumber){
                     freeze()
@@ -297,16 +152,16 @@ function decalPiece(pas){
 }
 
 function eareaseAll(){
-    for(i = 1;i<=caseNumber;i++){
+    for(var i = 1;i<=caseNumber;i++){
         $("#case"+i).css(backgroundStyle)
-        for(x = 0;x<movingPiece.data.length;x++){
-            for(y = 0;y<movingPiece.data[x].length;y++){
+        for(var x = 0;x<movingPiece.data.length;x++){
+            for(var y = 0;y<movingPiece.data[x].length;y++){
                 if(movingPiece.data[x][y] == i){
                     $("#case"+i).css(blocStyle[movingPiece.type])
                 }
             }
         }
-        for(x in ground){
+        for(var x in ground){
             if(x == i){
                 $("#case"+i).css(blocStyle[ground[x]])
             }
@@ -334,11 +189,11 @@ onkeydown = (event) => {
 function fall(){
     var step = line
     while(true){
-        for(x = 0;x<movingPiece.data.length;x++){
-            for(i = 0;i<movingPiece.data[x].length;i++){
+        for(var x = 0;x<movingPiece.data.length;x++){
+            for(var i = 0;i<movingPiece.data[x].length;i++){
                 if(movingPiece.data[x][i] + step > caseNumber || ground[movingPiece.data[x][i] + step] != undefined){
-                    for(j = 0;j<movingPiece.data.length;j++){
-                        for(w = 0;w<movingPiece.data[j].length;w++){
+                    for(var j = 0;j<movingPiece.data.length;j++){
+                        for(var w = 0;w<movingPiece.data[j].length;w++){
                             if (movingPiece.data[j][w] != 0){
                                 movingPiece.data[j][w] += step-line
                             }
@@ -355,8 +210,8 @@ function fall(){
 }
 
 function erease(){
-    for(i = 0;i< movingPiece.data.length;i++){
-        for(x = 0;x< movingPiece.data[i].length;x++){
+    for(var i = 0;i< movingPiece.data.length;i++){
+        for(var x = 0;x< movingPiece.data[i].length;x++){
             if( movingPiece.data[i][x] != 0){
                 $("#case"+(movingPiece.data[i][x])).css(backgroundStyle)
             }
@@ -365,18 +220,18 @@ function erease(){
 }
 
 function freeze(){  
-    for(i = 0;i<movingPiece.data.length;i++){
-        for(x = 0;x<movingPiece.data[i].length;x++){
+    for(var i = 0;i<movingPiece.data.length;i++){
+        for(var x = 0;x<movingPiece.data[i].length;x++){
             if(movingPiece.data[i][x] != 0){
                 ground[movingPiece.data[i][x]] = movingPiece.type
             }
         }
     }
-    for(i in ground){
+    for(var i in ground){
         var min = i-(i%line)+1
         var max = min+line-1
         var state = true
-        for(x = min;x<=max;x++){
+        for(var x = min;x<=max;x++){
             if(ground[x] == undefined){
                 state = false
             }
@@ -384,24 +239,24 @@ function freeze(){
         if(state){
             score += 40
             scoreDisplay.innerText = score
-            for(x = min;x<=max;x++){
+            for(var x = min;x<=max;x++){
                 delete ground[x]
             }
-            groundCopy = {...ground}
+            var groundCopy = {...ground}
             var allGround  = Object.keys(groundCopy).sort().reverse()
-            for(x in allGround){
+            for(var x in allGround){
                 if(allGround[x] < min){
                     var temp = groundCopy[allGround[x]]
                     delete ground[allGround[x]]
                     ground[parseInt(allGround[x])+line] = temp
                 }
             }
-            for(i in ground){   
+            for( var i in ground){   
                 $("#case"+i).css(blocStyle[ground[i]])
             }
         }
     }
-    for(i in ground){   
+    for( var i in ground){   
         $("#case"+i).css(blocStyle[ground[i]])
     }
     piecePlaced++
@@ -409,8 +264,8 @@ function freeze(){
 
 function move(){
     let temp = deepCopy(movingPiece.data)
-    for(i = 0;i< temp.length;i++){
-        for(x = 0;x< temp[i].length;x++){
+    for(var i = 0;i< temp.length;i++){
+        for(var x = 0;x< temp[i].length;x++){
             if( temp[i][x] != 0){
                 if(ground[temp[i][x]+line] != undefined || temp[i][x]+line > caseNumber){
                     freeze()
@@ -426,8 +281,8 @@ function move(){
 }
 
 function draw(){
-    for(i = 0;i< movingPiece.data.length;i++){
-        for(x = 0;x< movingPiece.data[i].length;x++){
+    for(var i = 0;i< movingPiece.data.length;i++){
+        for(var x = 0;x< movingPiece.data[i].length;x++){
             if( movingPiece.data[i][x] != 0){
                 $("#case"+(movingPiece.data[i][x])).css(blocStyle[movingPiece.type])
             }
@@ -435,21 +290,15 @@ function draw(){
     }
 }
 
-var count = 0
-
-var piecePlaced = 0
-
-var step = 3
-
 function updatePiece(){
     if(movingPiece.type == 0){
         var pieceChoice = Math.floor(Math.random() * (allPiece.length))
         var newPiece = allPiece[pieceChoice]
         movingPiece.type = (pieceChoice+1)
         var tempData = []
-        for (i = 0;i<newPiece.length;i++){
+        for (var i = 0;i<newPiece.length;i++){
             tempData.push([])
-            for(x = 0;x<newPiece[i].length;x++){
+            for(var x = 0;x<newPiece[i].length;x++){
                 if(newPiece[i][x] != 0){
                     tempData[i].push(middle+x+(line*i))
                     if(ground[middle+x+(line*i)] != undefined){
@@ -464,19 +313,19 @@ function updatePiece(){
         movingPiece.data = tempData
     }
     erease()
-    if(count >= 10){
+    if(count >= tempAmount){
         move()
-        count -= 10
+        count = 0
     }
-    count += step
-    if(piecePlaced == 10){
-        step++
-        piecePlaced ++
-    }else if(piecePlaced == 30){
-        step++
+    count += 1
+    if(piecePlaced == 20){
+        tempAmount--
         piecePlaced ++
     }else if(piecePlaced == 60){
-        step++
+        tempAmount--
+        piecePlaced ++
+    }else if(piecePlaced == 120){
+        tempAmount--
         piecePlaced ++
     }
     draw()
@@ -509,6 +358,9 @@ function deepCopy(obj) {
 function pauseGame() {
     clearInterval(gameClock)
 }
+
+$("#play_button").on("click",playGame) //c'est mon tetris donc c'est mon jquery ok Thomas ?
+$("#pause_button").on("click",pauseGame)
 
 function playGame() {
     gameClock = setInterval(updatePiece,timer/7)
