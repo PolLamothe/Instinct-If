@@ -1,8 +1,15 @@
 const caseNumber = 400
 const middle = 8
 const line = 16
-const background = "black"
+const backgroundStyle = {
+    "background-color": "#232323",
+    "border": "solid #3a3a3a 1px"
+}
 var timer = 500
+
+let score = 0
+let scoreDisplay = document.querySelector('#scoreTetris')
+scoreDisplay.innerText = score
 
 const allPiece = [
     [
@@ -182,14 +189,35 @@ for(i = 1; i <= caseNumber; i++){
 
 var ground = {}
 
-const color = {
-    1 : "blue",
-    2 : "yellow",
-    3 : "green",
-    4 : "red",
-    5 : "purple",
-    6 : "orange",
-    7 : "pink",
+const blocStyle = {
+    1 : {
+        "background-color": "#00ffff",
+        "border": "4px inset #00e1e1"
+    },
+    2 : {
+        "background-color": "#ffff00",
+        "border": "4px inset #e1e100"
+    },
+    3 : {
+        "background-color": "#00ff00",
+        "border": "4px inset #00e100"
+    },
+    4 : {
+        "background-color": "#ff0000",
+        "border": "4px inset #e10000"
+    },
+    5 : {
+        "background-color": "#0000ff",
+        "border": "4px inset #0000e1"
+    },
+    6 : {
+        "background-color": "#ff7f00",
+        "border": "4px inset #e87300"
+    },
+    7 : {
+        "background-color": "#800080",
+        "border": "4px inset #720072"
+    }
 }
 
 function changeStruct(struct){
@@ -270,17 +298,17 @@ function decalPiece(pas){
 
 function eareaseAll(){
     for(i = 1;i<=caseNumber;i++){
-        $("#case"+i).css("background-color",background)
+        $("#case"+i).css(backgroundStyle)
         for(x = 0;x<movingPiece.data.length;x++){
             for(y = 0;y<movingPiece.data[x].length;y++){
                 if(movingPiece.data[x][y] == i){
-                    $("#case"+i).css("background-color",color[movingPiece.type])
+                    $("#case"+i).css(blocStyle[movingPiece.type])
                 }
             }
         }
         for(x in ground){
             if(x == i){
-                $("#case"+i).css("background-color",color[ground[x]])
+                $("#case"+i).css(blocStyle[ground[x]])
             }
         }
     }
@@ -330,7 +358,7 @@ function erease(){
     for(i = 0;i< movingPiece.data.length;i++){
         for(x = 0;x< movingPiece.data[i].length;x++){
             if( movingPiece.data[i][x] != 0){
-                $("#case"+(movingPiece.data[i][x])).css("background-color",background)
+                $("#case"+(movingPiece.data[i][x])).css(backgroundStyle)
             }
         }
     }
@@ -354,6 +382,8 @@ function freeze(){
             }
         }
         if(state){
+            score += 40
+            scoreDisplay.innerText = score
             for(x = min;x<=max;x++){
                 delete ground[x]
             }
@@ -367,12 +397,12 @@ function freeze(){
                 }
             }
             for(i in ground){   
-                $("#case"+i).css("background-color",color[ground[i]])
+                $("#case"+i).css(blocStyle[ground[i]])
             }
         }
     }
     for(i in ground){   
-        $("#case"+i).css("background-color",color[ground[i]])
+        $("#case"+i).css(blocStyle[ground[i]])
     }
     piecePlaced++
 }
@@ -399,7 +429,7 @@ function draw(){
     for(i = 0;i< movingPiece.data.length;i++){
         for(x = 0;x< movingPiece.data[i].length;x++){
             if( movingPiece.data[i][x] != 0){
-                $("#case"+(movingPiece.data[i][x])).css("background-color",color[movingPiece.type])
+                $("#case"+(movingPiece.data[i][x])).css(blocStyle[movingPiece.type])
             }
         }
     }
@@ -452,7 +482,7 @@ function updatePiece(){
     draw()
 }
 
-setInterval(updatePiece,timer/7)
+let gameClock = setInterval(updatePiece,timer/7)
 
 function deepCopy(obj) {
     if (typeof obj !== 'object' || obj === null) {
@@ -474,4 +504,12 @@ function deepCopy(obj) {
         }
     }
     return copy;
+}
+
+function pauseGame() {
+    clearInterval(gameClock)
+}
+
+function playGame() {
+    gameClock = setInterval(updatePiece,timer/7)
 }
