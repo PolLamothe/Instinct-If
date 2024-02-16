@@ -42,11 +42,16 @@ navItems.forEach(item => {
     })
 })
 
+// Game navigation
+/*let fullscreen = document.querySelector("#fullscreen")
+fullscreen.addEventListener('click', () => {
+    gamePage.classList.toggle('fullscreen')
+})*/
+
 // Launcher
 let frameLauncher = document.querySelector('.game-screen')
 
 function launcher(game) {
-    switchWindow(navItems[2])
     switch (game) {
         case "souris":
             frameLauncher.src = "./game/mouse/index.html"
@@ -54,13 +59,14 @@ function launcher(game) {
         case "ttt":
             frameLauncher.src = "./game/tic-tac-toe/index.html"
             break
-        case "Snake":
+        case "snake-play":
             frameLauncher.src = "./game/snake/index.html"
             break
         case "Tetris":
             frameLauncher.src = "./game/tetris/index.html"
             break
     }
+    switchWindow(navItems[2])
     frameLauncher.focus()
 }
 

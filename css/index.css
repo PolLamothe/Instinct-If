@@ -115,6 +115,57 @@ main {
 .card__title .material-symbols-rounded:hover {
     transform: scale(1.4);
 }
+
+#login {
+    display: none;
+}
+
+#game {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#game.fullscreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+#game.fullscreen .game-screen {
+    width: 90vw;
+    aspect-ratio: 16/9;
+}
+.game-screen {
+    width: 70vw;
+    aspect-ratio: 16/9;
+    border-radius: 35px;
+    border: none;
+}
+.game_nav {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    background: var(--bg2);
+    border-radius: 50px;
+    margin-top: 16px;
+    padding: 12px 32px;
+    width: 70vw;
+}
+.game_nav_btn {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 100%;
+    user-select: none;
+}
+.game_nav_btn:hover {
+    background: rgba(255, 255, 255, 0.10);
+}
+/*
+    JEUX
+ */
 #mistigri {
     background: url("../assets/Mistigri-la-souris.png") no-repeat;
     background-size: contain;
@@ -129,6 +180,7 @@ main {
 #tic-tac-toe .card__title {
     background: linear-gradient(to top, rgba(218, 112, 214, 1) 60%, rgba(218, 112, 214, 0.80));
 }
+<<<<<<< Updated upstream
 #game {
     display: none;
     width: 100%;
@@ -141,15 +193,14 @@ main {
     border: none;
     height: max-content;
 }
+=======
+>>>>>>> Stashed changes
 #snake{
     background: url("../assets/Snake.png") no-repeat;
     background-size: contain;
 }
 #snake .card__title {
-    background: linear-gradient(to top, rgba(255, 0, 0, 1) 60%, rgba(255, 0, 0, 0.80));
-}
-#login {
-    display: none;
+    background: linear-gradient(to top, rgba(197, 4, 4, 1) 60%, rgba(197, 4, 4, 0.80));
 }
 .bestGames{
     display: flex;
