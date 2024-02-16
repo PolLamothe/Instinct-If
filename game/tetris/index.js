@@ -84,9 +84,9 @@ function changeStruct(struct){
             temp[i].push(0)
         }
     }
-    if(movingPiece.bottomleft%line in [1,2,3]){
+    /*if(movingPiece.bottomleft%line in [1,2,3]){
         return
-    }
+    }*/
     for (var i = 1;i<=4;i++){
         for(var x = 1;x<=4;x++){
             if(struct[4-i][4-x] != 0){
