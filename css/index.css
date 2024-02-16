@@ -180,21 +180,6 @@ main {
 #tic-tac-toe .card__title {
     background: linear-gradient(to top, rgba(218, 112, 214, 1) 60%, rgba(218, 112, 214, 0.80));
 }
-<<<<<<< Updated upstream
-#game {
-    display: none;
-    width: 100%;
-    justify-content: center;
-}
-.game-screen {
-    width: 70vw;
-    aspect-ratio: 16/9;
-    border-radius: 35px;
-    border: none;
-    height: max-content;
-}
-=======
->>>>>>> Stashed changes
 #snake{
     background: url("../assets/Snake.png") no-repeat;
     background-size: contain;

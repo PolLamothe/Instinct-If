@@ -8,13 +8,28 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script></head>
 <body>
     <div id="globalGame">
-        <div class="controls">
-            <button id="pause_button">PAUSE</button>
-            <button  id="play_button">PLAY</button>
-            <p class="score__display">Score : <span id="scoreTetris"></span></p>
-        </div>
         <div id="centerGame">
-
+            <div class="controls">
+                <div class="stats">
+                    <h5>SCORE</h5>
+                    <div class="stat__display">
+                        <span id="tScore">0</span>
+                    </div>
+                </div>
+                <div class="stats">
+                    <h5>LEVEL</h5>
+                    <div class="stat__display">
+                        <span id="tLevel">0</span>
+                    </div>
+                </div>
+                <div class="stats">
+                    <h5>LINES</h5>
+                    <div class="stat__display">
+                        <span id="tLines">0</span>
+                    </div>
+                </div>
+                <button id="play_state_btn" type="button"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M560-200v-560h160v560H560Zm-320 0v-560h160v560H240Z"/></svg></button>
+            </div>
         </div>
     </div>
     <script src="./index.js" type="module"></script>

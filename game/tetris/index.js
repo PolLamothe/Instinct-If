@@ -12,9 +12,6 @@ const backgroundStyle = {
     "background-color": "#232323",
     "border": "solid #3a3a3a 1px"
 }
-let score = 0
-let scoreDisplay = document.querySelector('#scoreTetris')
-scoreDisplay.innerText = score
 
 const timer = 500
 
@@ -23,6 +20,20 @@ var count = 0
 var piecePlaced = 0
 
 var tempAmount = 6
+
+var gameState = false
+
+let score = 0
+let scoreDisplay = document.querySelector('#tScore')
+scoreDisplay.innerText = score
+
+let linesNumber = 0
+let linesDisplay = document.querySelector('#tLines')
+linesDisplay.innerText = linesNumber
+
+let levelNumber = 0
+let levelDisplay = document.querySelector('#tLevel')
+levelDisplay.innerText = levelNumber
 
 class MovingPiece {
     type = 0
@@ -170,14 +181,14 @@ function eareaseAll(){
 }
 
 onkeydown = (event) => {
-    if(movingPiece.type != 0){
+    if(movingPiece.type != 0 && gameState){
         if(event.key == "ArrowRight"){
             decalPiece(1)
         }else if(event.key == "ArrowLeft"){
             decalPiece(-1)
         }else if(event.key == " "){
             fall()
-        }else if(event.key == "r"){
+        }else if(event.key == "r" || event.key == "ArrowUp"){
             rotatePiece()
         }else if (event.key == "ArrowDown"){
             decalPiece(line)
@@ -230,15 +241,23 @@ function freeze(){
     for(var i in ground){
         var min = i-(i%line)+1
         var max = min+line-1
-        var state = true
+        let state = true
         for(var x = min;x<=max;x++){
             if(ground[x] == undefined){
                 state = false
             }
         }
         if(state){
+            // Update score et lines
             score += 40
             scoreDisplay.innerText = score
+            linesNumber++
+            linesDisplay.innerText = linesNumber
+            if (linesNumber !== 0 && linesNumber%10 === 0) {
+                levelNumber++
+            }
+            levelDisplay.innerText = levelNumber
+
             for(var x = min;x<=max;x++){
                 delete ground[x]
             }
@@ -331,9 +350,8 @@ function updatePiece(){
     draw()
 }
 
-let gameClock = setInterval(updatePiece,timer/7)
-
 function deepCopy(obj) {
+
     if (typeof obj !== 'object' || obj === null) {
         return obj;
     }
@@ -355,13 +373,40 @@ function deepCopy(obj) {
     return copy;
 }
 
-function pauseGame() {
-    clearInterval(gameClock)
+// Game play state
+
+let gameClock = undefined
+
+function setGameState(state) {
+    if (gameState && !state) {
+        clearInterval(gameClock)
+        gameState = false
+    } else if (!gameState && state) {
+        gameClock = setInterval(updatePiece,timer/7)
+        gameState = true
+    }
 }
 
-$("#play_button").on("click",playGame) //c'est mon tetris donc c'est mon jquery ok Thomas ?
-$("#pause_button").on("click",pauseGame)
+const playBtn = document.querySelector('#play_state_btn')
 
-function playGame() {
-    gameClock = setInterval(updatePiece,timer/7)
+function updatePlayBtn() {
+    if (gameState) {
+        playBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M560-200v-560h160v560H560Zm-320 0v-560h160v560H240Z"/></svg>`
+    } else {
+        playBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M320-200v-560l440 280-440 280Z"/></svg>`
+    }
 }
+playBtn.addEventListener('click', (e) => {
+    setGameState(!gameState)
+    updatePlayBtn()
+})
+
+// Empêche que le jeu se mette en pause lorsque la touche espace est pressée et que le bouton est sélectionné
+playBtn.addEventListener('keydown', function(event) {
+    if (event.key === ' ' || event.key === 'Spacebar') {
+        event.preventDefault();
+    }
+});
+
+setGameState(true) // Start game
+updatePlayBtn()
