@@ -95,18 +95,50 @@ function changeStruct(struct){
             temp[i].push(0)
         }
     }
-    /*if(movingPiece.bottomleft%line in [1,2,3]){
-        return
-    }*/
     for (var i = 1;i<=4;i++){
         for(var x = 1;x<=4;x++){
             if(struct[4-i][4-x] != 0){
-                if(ground[struct[4-i][4-x] + movingPiece.bottomleft - i*line + (4-x)] != undefined ){
+                if(ground[(struct[4-i][4-x] + movingPiece.bottomleft - i*line + (4-x))] != undefined){
                     return
                 }
-                temp[4-i][4-x] = struct[4-i][4-x] + movingPiece.bottomleft - i*line + (4-x)
+                temp[4-i][4-x] = (struct[4-i][4-x] + movingPiece.bottomleft - i*line + (4-x))
             }
         }
+    }
+    var current = {"count":0,"line":0}
+    for (var i = 0;i<temp.length;i++){
+        var firstPiece = -1
+        for (var x = 0;x<temp[i].length;x++){
+            if(temp[i][x] != 0){
+                firstPiece = x
+                break
+            }
+        }
+        if (firstPiece == -1){
+            continue
+        }
+        var currentQuotient = Math.floor((temp[i][firstPiece]-1) / line)
+        var tempCount = 0
+        for (var x = firstPiece;x<temp[i].length;x++){
+            if (Math.floor((temp[i][x]-1) / line) != currentQuotient && temp[i][x] != 0) {
+                tempCount++
+                console.log("cutted")
+            }
+        }
+        if(tempCount > current.count){
+            current.count = tempCount
+            current.line = i
+        }
+    }
+    if(current.count > 0){
+        for (var i = 0;i<temp.length;i++){
+            for (var x = 0;x<temp[i].length;x++){
+                if(temp[i][x] != 0){
+                    temp[i][x] -= current.count
+                }
+            }
+        }
+        movingPiece.bottomleft -= current.count
     }
     movingPiece.data = temp
 }
@@ -337,10 +369,16 @@ function updatePiece(){
         count = 0
     }
     count += 1
-    if(piecePlaced == 20){
+    if(piecePlaced == 15){
+        tempAmount --
+        piecePlaced ++
+    }else if(piecePlaced == 30){
+        tempAmount --
+        piecePlaced ++
+    }else if(piecePlaced == 50){
         tempAmount--
         piecePlaced ++
-    }else if(piecePlaced == 60){
+    }else if(piecePlaced == 80){
         tempAmount--
         piecePlaced ++
     }else if(piecePlaced == 120){
