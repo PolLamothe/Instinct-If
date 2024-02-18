@@ -98,9 +98,6 @@ function changeStruct(struct){
     for (var i = 1;i<=4;i++){
         for(var x = 1;x<=4;x++){
             if(struct[4-i][4-x] != 0){
-                if(ground[(struct[4-i][4-x] + movingPiece.bottomleft - i*line + (4-x))] != undefined){
-                    return
-                }
                 temp[4-i][4-x] = (struct[4-i][4-x] + movingPiece.bottomleft - i*line + (4-x))
             }
         }
@@ -122,7 +119,6 @@ function changeStruct(struct){
         for (var x = firstPiece;x<temp[i].length;x++){
             if (Math.floor((temp[i][x]-1) / line) != currentQuotient && temp[i][x] != 0) {
                 tempCount++
-                console.log("cutted")
             }
         }
         if(tempCount > current.count){
@@ -130,6 +126,7 @@ function changeStruct(struct){
             current.line = i
         }
     }
+    var saveBottom = movingPiece.bottomleft
     if(current.count > 0){
         for (var i = 0;i<temp.length;i++){
             for (var x = 0;x<temp[i].length;x++){
@@ -140,6 +137,45 @@ function changeStruct(struct){
         }
         movingPiece.bottomleft -= current.count
     }
+    var translateNeed = false
+    for (var i = 0;i<temp.length;i++){
+        for (var x = 0;x<temp[i].length;x++){
+            if(ground[temp[i][x]] != undefined){
+                movingPiece.bottomleft = saveBottom
+                translateNeed = true
+                break
+            }
+        }
+    }
+    var itineration = 0
+    var tempBottom = movingPiece.bottomleft
+    if(translateNeed){
+        while(itineration < 4){
+            var isValid = true
+            for(var i = 0;i<temp.length;i++){
+                for(var x = 0;x<temp[i].length;x++){
+                    if(temp[i][x] != 0){
+                        if(Math.floor((temp[i][x]-2) / line) != Math.floor((temp[i][x]-1) / line)){
+                            return
+                        }
+                        if(ground[temp[i][x]-1] != undefined ){
+                            isValid = false
+                            if(itineration == 3){
+                                return
+                            }
+                        }
+                        temp[i][x]--
+                    }
+                }
+            }
+            if (isValid){
+                break
+            }
+            tempBottom--
+            itineration++
+        }
+    }
+    movingPiece.bottomleft = tempBottom
     movingPiece.data = temp
 }
 
