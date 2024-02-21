@@ -88,3 +88,27 @@ body,html{
 #play_state_btn:hover {
     background: #a7a7a7;
 }
+#rejouerButton{
+    font-size: 24px;
+    font-family: Roboto;
+    border-radius: 30px;
+    border: none;
+    margin-left: 50vw;
+    margin-top: 10vh;
+    transform: translate(-50%, -50%);
+    width: 15vw;
+    height: 10vh;
+    cursor: pointer;
+    background-color: lightblue;
+}
+#playAgainDiv{
+    position: absolute;
+    display: none;
+    margin-left: 50vw;
+    margin-top: 50vh;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 100vw;
+    height: 20vh;
+    background-color: #4545e3;
+}
