@@ -16,6 +16,7 @@ function switchWindow(w) {
             home.style.display = "block"
             gamePage.style.display = "none"
             login.style.display = 'none'
+            gameNavChangeState('hide')
             break
         case "nav-game":
             lastActiveElement.classList.remove('active')
@@ -24,6 +25,7 @@ function switchWindow(w) {
             home.style.display = "none"
             gamePage.style.display = "flex"
             login.style.display = 'none'
+            gameNavChangeState('show')
             break
         case "nav-login":
             lastActiveElement.classList.remove('active')
@@ -32,6 +34,7 @@ function switchWindow(w) {
             home.style.display = "none"
             gamePage.style.display = "none"
             login.style.display = 'block'
+            gameNavChangeState('hide')
             break
     }
 }
@@ -39,41 +42,5 @@ function switchWindow(w) {
 navItems.forEach(item => {
     item.addEventListener('click', (e) => {
         switchWindow(e.target)
-    })
-})
-
-// Game navigation
-/*let fullscreen = document.querySelector("#fullscreen")
-fullscreen.addEventListener('click', () => {
-    gamePage.classList.toggle('fullscreen')
-})*/
-
-// Launcher
-let frameLauncher = document.querySelector('.game-screen')
-
-function launcher(game) {
-    switch (game) {
-        case "souris":
-            frameLauncher.src = "./game/mouse/index.html"
-            break
-        case "ttt":
-            frameLauncher.src = "./game/tic-tac-toe/index.html"
-            break
-        case "snake-play":
-            frameLauncher.src = "./game/snake/index.html"
-            break
-        case "Tetris":
-            frameLauncher.src = "./game/tetris/index.html"
-            break
-    }
-    switchWindow(navItems[2])
-    frameLauncher.focus()
-}
-
-let playBtn = document.querySelectorAll(".play")
-
-playBtn.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        launcher(e.target.id)
     })
 })

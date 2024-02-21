@@ -70,6 +70,7 @@ main {
     position: absolute;
     bottom: 32px;
     right: 32px;
+    z-index: 1;
 }
 
 .git svg {
@@ -126,6 +127,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 5;
 }
 #game.fullscreen {
     position: absolute;
@@ -133,69 +135,117 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
+    background: rgba(24, 23, 53, 0.70);
+    backdrop-filter: blur(5px);
 }
-#game.fullscreen .game-screen {
-    width: 90vw;
-    aspect-ratio: 16/9;
-}
+
 .game-screen {
     width: 70vw;
+    height: auto;
     aspect-ratio: 16/9;
     border-radius: 35px;
     border: none;
 }
+#game.fullscreen .game-screen {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+}
 .game_nav {
-    display: flex;
-    justify-content: end;
-    align-items: center;
+    color: #ffffff;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 10;
+    transform: translateX(-50%) translateY(-100%);
+    padding: 10px 32px;
     background: var(--bg2);
-    border-radius: 50px;
-    margin-top: 16px;
-    padding: 12px 32px;
-    width: 70vw;
+    border-radius: 0 0 32px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    transition: transform .3s ease-in-out;
+}
+.game_nav.show {
+    transform: translateX(-50%) translateY(0);
+}
+.game_nav.hide {
+    transform: translateX(-50%) translateY(-100%);
+}
+.game_nav.close {
+    transform: translateX(-50%) translateY(-55%);
+    color: transparent;
 }
 .game_nav_btn {
     cursor: pointer;
     padding: 10px;
     border-radius: 100%;
     user-select: none;
+    transition: .2s;
 }
 .game_nav_btn:hover {
     background: rgba(255, 255, 255, 0.10);
 }
-/*
-    JEUX
- */
-#mistigri {
-    background: url("../assets/Mistigri-la-souris.png") no-repeat;
-    background-size: contain;
+.game-select {
+    position: relative;
 }
-#mistigri .card__title {
-    background: linear-gradient(to top, rgba(0, 128, 0, 1) 60%, rgba(0, 128, 0, 0.80));
+.game-select .material-symbols-rounded {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
 }
-#tic-tac-toe {
-    background: url("../assets/Tic-Tac-Toe.png") no-repeat;
-    background-size: contain;
+#game-selection {
+    color: inherit;
+    font-size: 16px;
+    border: none;
+    background: rgba(255, 255, 255, 0.0);
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 8px 48px 8px 12px;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    transition: .2s;
+    width: max-content;
 }
-#tic-tac-toe .card__title {
-    background: linear-gradient(to top, rgba(218, 112, 214, 1) 60%, rgba(218, 112, 214, 0.80));
-}
-#snake{
-    background: url("../assets/Snake.png") no-repeat;
-    background-size: contain;
-}
-#snake .card__title {
-    background: linear-gradient(to top, rgba(197, 4, 4, 1) 60%, rgba(197, 4, 4, 0.80));
+#game-selection:hover {
+    background: rgba(255, 255, 255, 0.10);
 }
 .bestGames{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
-#tetris .card__title {
+/*
+    JEUX
+ */
+#mouse_c {
+    background: url("../assets/Mistigri-la-souris.png") no-repeat;
+    background-size: contain;
+}
+#mouse_c .card__title {
+    background: linear-gradient(to top, rgba(0, 128, 0, 1) 60%, rgba(0, 128, 0, 0.80));
+}
+#tic-tac-toe_c {
+    background: url("../assets/Tic-Tac-Toe.png") no-repeat;
+    background-size: contain;
+}
+#tic-tac-toe_c .card__title {
+    background: linear-gradient(to top, rgba(218, 112, 214, 1) 60%, rgba(218, 112, 214, 0.80));
+}
+#snake_c{
+    background: url("../assets/Snake.png") no-repeat;
+    background-size: contain;
+}
+#snake_c .card__title {
+    background: linear-gradient(to top, rgba(197, 4, 4, 1) 60%, rgba(197, 4, 4, 0.80));
+}
+#tetris_c .card__title {
     background: linear-gradient(to top, rgba(255, 165, 0, 1) 60%, rgba(255, 165, 0, 0.80));
 }
-#tetris{
+#tetris_c{
     background: url("../assets/Tetris.png") no-repeat;
     background-size: cover;
 }
