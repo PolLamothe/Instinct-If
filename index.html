@@ -67,7 +67,51 @@
             </div>
         </section>
         <section id="login">
-            <h1>LOGIN PAGE</h1>
+           <div id="connexionPage">
+                <h1>CONNEXION</h1>
+                <form action="Login" method="post">
+                <h2>Identifiant</h2>
+                <input type="email" name="Identifiant" placeholder="E-mail" required><br>
+                <h2>Mot de Passe</h2>
+                <input type="Mot de Passe" name="Mot de Passe">
+                <br>
+                <a href="#" id="mdpForget">Mot de Passe oublié ? </a>
+                <br>
+                <a href="#" id="newAccount">Nouveau</a>
+                <input type="button" value="Valider">
+            </form>
+            </div>
+            
+            <!--
+            <div id="mdpForgetPage">
+                <form action="mdpForget" method="post">
+                    <h2>Mot de Passe oublié</h2>
+                    <h4>Veuillir saisir l'adresse mail relier a votre compte afin de réinitialiser votre mot de passe</h4>
+                    <input type="email" placeholder="E-mail" required><br>
+                    <input type="button" value="Valider">
+                </form>
+            </div>
+            -->
+            <!--
+            <div id="newAccountPage">
+                <form action="newAccount" method="post">
+                    <h2>Créer Votre Compte</h2>
+                    <h4>Veuillez saisir les informations suivantes pour créer un nouveau compte</h4>
+                    <h5>Nom</h5>
+                    <input type="text" required><br>
+                    <h5>Prénom</h5>
+                    <input type="text" required><br>
+                    <h5>E-mail</h5>
+                    <input type="email" placeholder="Entrer un E-mail valide" required><br>
+                    <h5>Mot de Passe</h5>
+                    <input type="password" placeholder="entrer un Mot de Passe" required><br>
+                    <input type="password" placeholder="Confirmer le Mot de Passe" required><br>
+                    <input type="checkbox" name="recievedInfo" id="recievedInfo"><label for="recievedInfo">Souhaitez vous recevoir par mail toutes les informations sur chaques nouveau jeux à sa sortie et quelque tips pour améliorer vos performances !</label>
+                    <br>
+                    <input type="button" value="Valider">
+                </form>
+            </div>
+            -->
         </section>
         <section id="game">
             <iframe
