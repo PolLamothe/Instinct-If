@@ -390,6 +390,7 @@ function updatePiece(){
                     tempData[i].push(middle+x+(line*i))
                     if(ground[middle+x+(line*i)] != undefined){
                         alert("Game Over")
+                        $('#playAgainDiv').css('display','inherit')
                         return
                     }
                 }else{
@@ -481,6 +482,17 @@ playBtn.addEventListener('keydown', function(event) {
         event.preventDefault();
     }
 });
+
+$('#rejouerButton').click(function(){
+    movingPiece.reset()
+    ground = {}
+    count = 0
+    piecePlaced = 0
+    tempAmount = 6
+    $('#playAgainDiv').css('display','none')
+    eareaseAll()
+    setGameState(true)
+})
 
 setGameState(true) // Start game
 updatePlayBtn()
