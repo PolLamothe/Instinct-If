@@ -15,7 +15,7 @@ const DifficultyData = {
     },
     Difficile: {
         tile : 361,
-        mines: 80,
+        mines: 70,
         safe : 5
     }
 
@@ -30,7 +30,7 @@ $('.difficultyButton').on('click',function (e){
 })
 
 window.oncontextmenu = (e) => {
-    if(e.target.classList.contains("tile") && discovered){
+    if(e.target.classList.contains("tile") && discovered && e.target.classList.contains("Revealed") == false){
         e.preventDefault()
         if(!e.target.classList.contains("marked")){
             $(e.target).addClass("marked")
