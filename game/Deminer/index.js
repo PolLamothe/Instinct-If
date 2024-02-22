@@ -31,14 +31,16 @@ window.oncontextmenu = (e) => {
         e.preventDefault()
         if(!e.target.classList.contains("marked")){
             $(e.target).addClass("marked")
+            $('#crossCount').text($('#crossCount').text()-1)
         }else{
             $(e.target).removeClass("marked")
+            $('#crossCount').text(parseInt($('#crossCount').text())+1)
         }
     }
 }
 
 function resetDiv(){
-    $('#startDiv').remove()
+    $('#startDiv').css("display","none") 
 }
 
 function getCase(x,y){
@@ -87,7 +89,7 @@ function discoverGame(xClick,yClick){
 }
 
 function dealClick(e){
-    if($(e.target).prev().prop("nodeName") != "DIV"){
+    if(!$(e.target).is("div")){
         return
     }
     var current = e.target
@@ -101,7 +103,7 @@ function dealClick(e){
     }
     if (ground[y][x] == 1){
         $(current).addClass("bomb")
-        alert("You losed")
+        $('#annonceDéfaite').css("display","inherit")
     }else if($(current).children().length == 0){
         $(current).append("<p>"+getNearBomb(x,y)+"</p>")
         if($(current).children()[0].innerHTML == 0){
@@ -116,10 +118,17 @@ function dealClick(e){
             }
             $($(current).children()[0]).css("display","none")
         }
+    }else{
+        return
+    }
+    if($(".Revealed").length == DifficultyData[gameDifficulty].tile-DifficultyData[gameDifficulty].mines){
+        $('#annonceVictoire').css("display","inherit")
     }
 }
 
 function Game(){
+    $('#Main').css("display","flex")
+    $('#crossCount').text(DifficultyData[gameDifficulty].mines)
     let switcher = false
     let previousLine = switcher
     for (let i = 0;i<Math.sqrt(DifficultyData[gameDifficulty].tile);i++){
@@ -139,8 +148,6 @@ function Game(){
     $('.tile').on('click',dealClick)
     $('.tile').css("width",90/Math.sqrt(DifficultyData[gameDifficulty].tile)+"vh")
     $('.tile').css("height",90/Math.sqrt(DifficultyData[gameDifficulty].tile)+"vh")
-    $("#Game").css("width",90+"vh")
-
 }
 
 async function hash(string) {
@@ -151,4 +158,17 @@ async function hash(string) {
       .map((bytes) => bytes.toString(16).padStart(2, '0'))
       .join('');
     return hashHex;
+}
+
+$(".rejouerButton").on("click",reset)
+
+function reset(){
+    gameDifficulty = null
+    discovered = false
+    ground = []
+    $("#Game").empty()
+    $('#Main').css("display","none")
+    $('#startDiv').css("display","inherit")
+    $('#annonceDéfaite').css("display","none")
+    $('#annonceVictoire').css("display","none")
 }

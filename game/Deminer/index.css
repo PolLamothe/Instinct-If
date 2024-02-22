@@ -11,14 +11,14 @@
 }
 body{
     overflow-y: hidden;
+    margin: 0px;
 }
 #Game{
     display: flex;
     flex-direction: line;
     flex-wrap: wrap;
-    margin-left: 50vw;
-    margin-top: 50vh;
-    transform: translate(-50%,-50%);
+    height: 90vh;
+    width: 90vh;
 }
 
 .Dark{
@@ -40,4 +40,65 @@ body{
 .bomb{
     background-image: url("./bomb.png");
     background-position: center;
+}
+#Main{
+    display: none;
+    margin-left: 50vw;
+    margin-top: 50vh;
+    transform: translate(-50%,-50%);
+    width: fit-content;
+    height: fit-content;
+    align-items: center;
+    justify-self: center;
+}
+#Info{
+    height: max-content;
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    border: solid 8px black;
+    border-radius: 30px;
+    padding: 1vw;
+    margin-left: 10vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+#Info img{
+    width: 5vw;
+}
+#Info p{
+    font-family: Roboto;
+    font-size: 25px;
+}
+.annonce{
+    display: none;
+    position: absolute;
+    text-align: center;
+    background-color: lightgreen;
+    width: 100vw;
+    padding-bottom: 5vh;
+    font-size: 50px;
+    font-family: Roboto;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%,-50%);
+}
+#annonceDéfaite{
+    background-color: red;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%,-50%);
+}
+.rejouerButton{
+    font-size: 30px;
+    font-family: Roboto;
+    background-color: lightblue;
+    border: none;
+    padding: 1vw;
+    border-radius: 30px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+.rejouerButton:hover{
+    background-color: lightgreen;
 }

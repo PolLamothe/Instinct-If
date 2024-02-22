@@ -7,7 +7,8 @@ let allGames = [
     "mouse",
     "tic-tac-toe",
     "snake",
-    "tetris"
+    "tetris",
+    "deminer"
 ]
 
 let frameLauncher = document.querySelector('.game-screen')

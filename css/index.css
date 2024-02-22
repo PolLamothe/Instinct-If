@@ -289,6 +289,12 @@ main {
 #tetris_c{
     background: url("../assets/Tetris.png") no-repeat center top/cover;
 }
+#deminer_c{
+    background: url("../assets/deminer.png") no-repeat center top/cover;
+}
 #tetris_c .card__title {
     background: rgba(255, 165, 0, 0.80);
+}
+#deminer_c .card__title{
+    background:  	rgba(128,128,128,0.9)
 }

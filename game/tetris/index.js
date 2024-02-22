@@ -389,7 +389,6 @@ function updatePiece(){
                 if(newPiece[i][x] != 0){
                     tempData[i].push(middle+x+(line*i))
                     if(ground[middle+x+(line*i)] != undefined){
-                        alert("Game Over")
                         $('#playAgainDiv').css('display','inherit')
                         return
                     }
