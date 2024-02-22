@@ -1,6 +1,18 @@
 :root {
     --bg1: #181735;
     --bg2: #444394;
+    --bg3: #ffffff;
+    --text-color: #ffffff;
+    --text-color-inactive: rgba(255, 255, 255, 0.5);
+    --fs-bg: rgba(24, 23, 53, 0.70);
+}
+.dark_mode {
+    --bg1: #f4f4f4;
+    --bg2: #ffffff;
+    --bg3: #181735;
+    --text-color: #444394;
+    --text-color-inactive: rgba(68, 67, 148, 0.5);
+    --fs-bg: rgba(244, 244, 244, 0.70);
 }
 
 * {
@@ -15,12 +27,15 @@ body {
     font-style: normal;
     background: var(--bg2);
     display: flex;
-    color: #ffffff;
+    color: var(--text-color);
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 }
 
 header {
     height: 100vh;
-    color: rgba(255, 255, 255, 0.50);
+    color: var(--text-color-inactive);
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -34,10 +49,10 @@ header .material-symbols-rounded {
     transition: color .3s;
 }
 header .material-symbols-rounded.active {
-    color: #ffffff;
+    color: var(--text-color);
 }
 header .material-symbols-rounded:hover {
-    color: #ffffff;
+    color: var(--text-color);
 }
 
 .nav__item {
@@ -46,18 +61,49 @@ header .material-symbols-rounded:hover {
     user-select: none;
 }
 
+.head {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 32px 64px;
+    /*background: rgba(68, 67, 148, 0.2);*/
+}
+.theme-toggle {
+    position: absolute;
+    right: 64px;
+    top: 50%;
+    transform: translateY(-50%) scale(2);
+}
+.logo-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    font-weight: bold;
+}
+.title {
+    font-size: 30px;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    font-size: 22px;
+    transform: scale(1.2);
+}
+
 main {
     background: var(--bg1);
     border-radius: 45px 0 0 45px;
     height: 100vh;
     flex-grow: 2;
-    padding: 32px 64px;
+    box-shadow: -8px 0 12px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
 }
-
-.title {
-    font-weight: bold;
-    font-size: 30px;
-    margin-bottom: 32px;
+.container {
+    padding: 32px 64px;
 }
 
 .git {
@@ -65,7 +111,7 @@ main {
     justify-content: end;
     align-items: center;
     gap: 4px;
-    color: #ffffff;
+    color: var(--text-color);
     font-size: 16px;
     position: absolute;
     bottom: 32px;
@@ -106,6 +152,7 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: #ffffff;
 }
 .card__title .material-symbols-rounded {
     font-size: 32px;
@@ -135,7 +182,7 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(24, 23, 53, 0.70);
+    background: var(--fs-bg);
     backdrop-filter: blur(5px);
 }
 
@@ -152,7 +199,7 @@ main {
     aspect-ratio: auto;
 }
 .game_nav {
-    color: #ffffff;
+    color: var(--text-color);
     position: absolute;
     left: 50%;
     top: 0;
@@ -222,30 +269,26 @@ main {
     JEUX
  */
 #mouse_c {
-    background: url("../assets/Mistigri-la-souris.png") no-repeat;
-    background-size: contain;
+    background: url("../assets/Mistigri-la-souris.png") no-repeat center top/cover;
 }
 #mouse_c .card__title {
-    background: linear-gradient(to top, rgba(0, 128, 0, 1) 60%, rgba(0, 128, 0, 0.80));
+    background: rgba(0, 128, 0, 0.8);
 }
 #tic-tac-toe_c {
-    background: url("../assets/Tic-Tac-Toe.png") no-repeat;
-    background-size: contain;
+    background: url("../assets/Tic-Tac-Toe.png") no-repeat center top/cover;
 }
 #tic-tac-toe_c .card__title {
-    background: linear-gradient(to top, rgba(218, 112, 214, 1) 60%, rgba(218, 112, 214, 0.80));
+    background: rgba(218, 112, 214, 0.8);
 }
 #snake_c{
-    background: url("../assets/Snake.png") no-repeat;
-    background-size: contain;
+    background: url("../assets/Snake.png") no-repeat center top/cover;
 }
 #snake_c .card__title {
-    background: linear-gradient(to top, rgba(197, 4, 4, 1) 60%, rgba(197, 4, 4, 0.80));
-}
-#tetris_c .card__title {
-    background: linear-gradient(to top, rgba(255, 165, 0, 1) 60%, rgba(255, 165, 0, 0.80));
+    background: rgba(197, 4, 4, 0.80);
 }
 #tetris_c{
-    background: url("../assets/Tetris.png") no-repeat;
-    background-size: cover;
+    background: url("../assets/Tetris.png") no-repeat center top/cover;
+}
+#tetris_c .card__title {
+    background: rgba(255, 165, 0, 0.80);
 }

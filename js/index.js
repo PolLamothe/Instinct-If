@@ -44,3 +44,16 @@ navItems.forEach(item => {
         switchWindow(e.target)
     })
 })
+
+// Dark mode
+let toogleDark = document.querySelector("#dark-mode")
+let root = document.documentElement
+
+toogleDark.addEventListener('click', () => {
+    if (toogleDark.checked) {
+        root.classList.remove("dark_mode")
+    } else {
+        root.classList.add("dark_mode")
+    }
+})
+toogleDark.checked = !root.classList.contains("dark_mode")

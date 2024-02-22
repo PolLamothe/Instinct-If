@@ -34,6 +34,7 @@ gameNavHide.addEventListener('click', () => {
         gameNavChangeState('close')
     }
     gameNvPin = false
+    frameLauncher.focus()
 })
 gameNav.addEventListener('mouseenter', () => {
     if (gameNav.classList.contains('close') && !gameNvPin) {
@@ -71,6 +72,7 @@ gameNavFS.addEventListener('click', () => {
     } else {
         gameNavFS.innerText = "fullscreen"
     }
+    frameLauncher.focus()
 })
 
 // Launcher in iframe

@@ -5,6 +5,7 @@
     <title>Instinct If</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/theme-toggles@4.10.1_css_around.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
@@ -23,6 +24,40 @@
         </div>
     </header>
     <main>
+        <div class="head">
+            <div class="logo-title">
+                <span class="logo">{ <span class="material-symbols-rounded nav__item__btn">sports_esports</span> }</span>
+                <h1 class="title">Instinct If</h1>
+            </div>
+            <label class="theme-toggle">
+                <input type="checkbox" id="dark-mode"/>
+                <span class="theme-toggle-sr">Toggle theme</span>
+                <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                        width="1em"
+                        height="1em"
+                        fill="currentColor"
+                        class="theme-toggle__around"
+                        viewBox="0 0 32 32"
+                >
+                    <clipPath id="theme-toggle__around__cutout">
+                        <path d="M0 0h42v30a1 1 0 00-16 13H0Z" />
+                    </clipPath>
+                    <g clip-path="url(#theme-toggle__around__cutout)">
+                        <circle cx="16" cy="16" r="8.4" />
+                        <g>
+                            <circle cx="16" cy="3.3" r="2.3" />
+                            <circle cx="27" cy="9.7" r="2.3" />
+                            <circle cx="27" cy="22.3" r="2.3" />
+                            <circle cx="16" cy="28.7" r="2.3" />
+                            <circle cx="5" cy="22.3" r="2.3" />
+                            <circle cx="5" cy="9.7" r="2.3" />
+                        </g>
+                    </g>
+                </svg>
+            </label>
+        </div>
         <div class="game_nav hide">
             <span class="material-symbols-rounded game_nav_btn" id="gn_fullscreen">fullscreen</span>
             <div class="game-select">
@@ -37,92 +72,94 @@
             </div>
             <span class="material-symbols-rounded game_nav_btn" id="gn_hide">push_pin</span>
         </div>
-        <h1 class="title">Instinct If { }</h1>
-        <section id="home">
-            <div class="bestGames">
-                <div class="card" id="mouse_c">
-                    <div class="card__title">
-                        <p>Mistigri la souris</p>
-                        <span class="material-symbols-rounded play play" id="mouse">play_circle</span>
+        <div class="container">
+            <section id="home">
+                <div class="bestGames">
+                    <div class="card" id="tetris_c">
+                        <div class="card__title">
+                            <p>Tetris</p>
+                            <span class="material-symbols-rounded play" id="tetris">play_circle</span>
+                        </div>
+                    </div>
+                    <div class="card" id="snake_c">
+                        <div class="card__title">
+                            <p>Snake</p>
+                            <span class="material-symbols-rounded play" id="snake">play_circle</span>
+                        </div>
+                    </div>
+                    <div class="card" id="tic-tac-toe_c">
+                        <div class="card__title">
+                            <p>Tic-tac-toe</p>
+                            <span class="material-symbols-rounded play" id="tic-tac-toe">play_circle</span>
+                        </div>
+                    </div>
+                    <div class="card" id="mouse_c">
+                        <div class="card__title">
+                            <p>Mistigri la souris</p>
+                            <span class="material-symbols-rounded play play" id="mouse">play_circle</span>
+                        </div>
                     </div>
                 </div>
-                <div class="card" id="tic-tac-toe_c">
-                    <div class="card__title">
-                        <p>Tic-tac-toe</p>
-                        <span class="material-symbols-rounded play" id="tic-tac-toe">play_circle</span>
-                    </div>
+            </section>
+            <section id="login">
+                <div id="connexionPage">
+                    <h1>CONNEXION</h1>
+                    <form action="Login" method="post">
+                        <h2>Identifiant</h2>
+                        <input type="email" name="Identifiant" placeholder="E-mail" required><br>
+                        <h2>Mot de Passe</h2>
+                        <input type="Mot de Passe" name="Mot de Passe">
+                        <br>
+                        <a href="#" id="mdpForget">Mot de Passe oublié ? </a>
+                        <br>
+                        <a href="#" id="newAccount">Nouveau</a>
+                        <input type="button" value="Valider">
+                    </form>
                 </div>
-                <div class="card" id="snake_c">
-                    <div class="card__title">
-                        <p>Snake</p>
-                        <span class="material-symbols-rounded play" id="snake">play_circle</span>
-                    </div>
+
+                <!--
+                <div id="mdpForgetPage">
+                    <form action="mdpForget" method="post">
+                        <h2>Mot de Passe oublié</h2>
+                        <h4>Veuillir saisir l'adresse mail relier a votre compte afin de réinitialiser votre mot de passe</h4>
+                        <input type="email" placeholder="E-mail" required><br>
+                        <input type="button" value="Valider">
+                    </form>
                 </div>
-                <div class="card" id="tetris_c">
-                    <div class="card__title">
-                        <p>Tetris</p>
-                        <span class="material-symbols-rounded play" id="tetris">play_circle</span>
-                    </div>
+                -->
+                <!--
+                <div id="newAccountPage">
+                    <form action="newAccount" method="post">
+                        <h2>Créer Votre Compte</h2>
+                        <h4>Veuillez saisir les informations suivantes pour créer un nouveau compte</h4>
+                        <h5>Nom</h5>
+                        <input type="text" required><br>
+                        <h5>Prénom</h5>
+                        <input type="text" required><br>
+                        <h5>E-mail</h5>
+                        <input type="email" placeholder="Entrer un E-mail valide" required><br>
+                        <h5>Mot de Passe</h5>
+                        <input type="password" placeholder="entrer un Mot de Passe" required><br>
+                        <input type="password" placeholder="Confirmer le Mot de Passe" required><br>
+                        <input type="checkbox" name="recievedInfo" id="recievedInfo"><label for="recievedInfo">Souhaitez vous recevoir par mail toutes les informations sur chaques nouveau jeux à sa sortie et quelque tips pour améliorer vos performances !</label>
+                        <br>
+                        <input type="button" value="Valider">
+                    </form>
                 </div>
-            </div>
-        </section>
-        <section id="login">
-           <div id="connexionPage">
-                <h1>CONNEXION</h1>
-                <form action="Login" method="post">
-                <h2>Identifiant</h2>
-                <input type="email" name="Identifiant" placeholder="E-mail" required><br>
-                <h2>Mot de Passe</h2>
-                <input type="Mot de Passe" name="Mot de Passe">
-                <br>
-                <a href="#" id="mdpForget">Mot de Passe oublié ? </a>
-                <br>
-                <a href="#" id="newAccount">Nouveau</a>
-                <input type="button" value="Valider">
-            </form>
-            </div>
-            
-            <!--
-            <div id="mdpForgetPage">
-                <form action="mdpForget" method="post">
-                    <h2>Mot de Passe oublié</h2>
-                    <h4>Veuillir saisir l'adresse mail relier a votre compte afin de réinitialiser votre mot de passe</h4>
-                    <input type="email" placeholder="E-mail" required><br>
-                    <input type="button" value="Valider">
-                </form>
-            </div>
-            -->
-            <!--
-            <div id="newAccountPage">
-                <form action="newAccount" method="post">
-                    <h2>Créer Votre Compte</h2>
-                    <h4>Veuillez saisir les informations suivantes pour créer un nouveau compte</h4>
-                    <h5>Nom</h5>
-                    <input type="text" required><br>
-                    <h5>Prénom</h5>
-                    <input type="text" required><br>
-                    <h5>E-mail</h5>
-                    <input type="email" placeholder="Entrer un E-mail valide" required><br>
-                    <h5>Mot de Passe</h5>
-                    <input type="password" placeholder="entrer un Mot de Passe" required><br>
-                    <input type="password" placeholder="Confirmer le Mot de Passe" required><br>
-                    <input type="checkbox" name="recievedInfo" id="recievedInfo"><label for="recievedInfo">Souhaitez vous recevoir par mail toutes les informations sur chaques nouveau jeux à sa sortie et quelque tips pour améliorer vos performances !</label>
-                    <br>
-                    <input type="button" value="Valider">
-                </form>
-            </div>
-            -->
-        </section>
-        <section id="game">
-            <iframe
-                    class="game-screen"
-                    title="Instinct If game"
-                    src="">
-            </iframe>
-        </section>
+                -->
+            </section>
+            <section id="game">
+                <iframe
+                        class="game-screen"
+                        title="Instinct If game"
+                        src=""
+                        autofocus>
+                </iframe>
+            </section>
+        </div>
         <a href="https://github.com/PolLamothe/Instinct-If" target="_blank" class="git">
-            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" fill="#ffffff"/></svg>
-            Github - Beta
+            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" fill="var(--text-color)"/></svg>
+            Github
         </a>
     </main>
     <script src="js/index.js"></script>
