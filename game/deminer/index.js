@@ -5,15 +5,18 @@ let discovered = false
 const DifficultyData = {
     Facile: {
         tile : 121,
-        mines: 25
+        mines: 25,
+        safe: 4
     },
     Moyen: {
         tile : 196,
-        mines: 50
+        mines: 40,
+        safe : 4
     },
     Difficile: {
-        tile : 400,
-        mines: 125
+        tile : 361,
+        mines: 80,
+        safe : 5
     }
 
 }
@@ -78,9 +81,9 @@ async function debug(password){
 function discoverGame(xClick,yClick){
     let mineCount = DifficultyData[gameDifficulty].mines
     while(mineCount > 0){
-        let x = Math.floor(Math.random()*(Math.sqrt(DifficultyData[gameDifficulty].tile)-1))
-        let y = Math.floor(Math.random()*(Math.sqrt(DifficultyData[gameDifficulty].tile)-1))
-        if (ground[y][x] == 0 && (( Math.abs(x-xClick) + Math.abs(y-yClick)) >= 4)){
+        let x = Math.floor(Math.random()*(Math.sqrt(DifficultyData[gameDifficulty].tile)))
+        let y = Math.floor(Math.random()*(Math.sqrt(DifficultyData[gameDifficulty].tile)))
+        if (ground[y][x] == 0 && (( Math.abs(x-xClick) + Math.abs(y-yClick)) >= DifficultyData[gameDifficulty].safe)){
             ground[y][x] = 1
             mineCount--
         }
