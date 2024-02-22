@@ -1,17 +1,19 @@
 let gameDifficulty = null
 
+let discovered = false
+
 const DifficultyData = {
     Facile: {
-        tile : 100,
-        mines: 10
+        tile : 121,
+        mines: 25
     },
     Moyen: {
         tile : 196,
-        mines: 40
+        mines: 50
     },
     Difficile: {
         tile : 400,
-        mines: 90
+        mines: 125
     }
 
 }
@@ -25,7 +27,7 @@ $('.difficultyButton').on('click',function (e){
 })
 
 window.oncontextmenu = (e) => {
-    if(e.target.classList.contains("tile")){
+    if(e.target.classList.contains("tile") && discovered){
         e.preventDefault()
         if(!e.target.classList.contains("marked")){
             $(e.target).addClass("marked")
@@ -55,36 +57,71 @@ function getNearBomb(x,y){
         }
     }
     return bombCount
-}  
+}
+
+async function debug(password){
+    if(await hash(password) == "83ddebbefbe67e0d4db0117d3bb759f8488198a1ffe321afeab2122363745322"){
+        for(let i = 0;i<ground.length;i++){
+            for(let j = 0;j<ground[i].length;j++){
+                if(ground[i][j] == 1){
+                    $(`#tile${i*Math.sqrt(DifficultyData[gameDifficulty].tile)+j}`).addClass("bomb")
+                }
+            }
+        }    
+    }else{
+        console.log("Bien essayé mais non")
+    }
+}
+
+function discoverGame(xClick,yClick){
+    let mineCount = DifficultyData[gameDifficulty].mines
+    while(mineCount > 0){
+        let x = Math.floor(Math.random()*(Math.sqrt(DifficultyData[gameDifficulty].tile)-1))
+        let y = Math.floor(Math.random()*(Math.sqrt(DifficultyData[gameDifficulty].tile)-1))
+        if (ground[y][x] == 0 && (( Math.abs(x-xClick) + Math.abs(y-yClick)) >= 4)){
+            ground[y][x] = 1
+            mineCount--
+        }
+    }
+    discovered = true
+}
 
 function dealClick(e){
+    if($(e.target).prev().prop("nodeName") != "DIV"){
+        return
+    }
     var current = e.target
     let x = parseInt(current.getAttribute('x'))
     let y = parseInt(current.getAttribute('y'))
     $(current).addClass("Revealed")
     $(current).removeClass("Light")
     $(current).removeClass("Dark")
+    if (!discovered){
+        discoverGame(x,y)
+    }
     if (ground[y][x] == 1){
         $(current).addClass("bomb")
         alert("You losed")
-    }else{
-        current.innerHTML = getNearBomb(x,y)
-        if(current.innerHTML == 0){
+    }else if($(current).children().length == 0){
+        $(current).append("<p>"+getNearBomb(x,y)+"</p>")
+        if($(current).children()[0].innerHTML == 0){
             for (let i = -1;i<2;i++){
                 for (let j = -1;j<2;j++){
-                    if (x+i >= 0 && x+i < Math.sqrt(DifficultyData[gameDifficulty].tile) && y+j >= 0 && y+j < Math.sqrt(DifficultyData[gameDifficulty].tile)){
+                    if (x+i >= 0 && x+i < Math.sqrt(DifficultyData[gameDifficulty].tile) && y+j >= 0 && y+j < (Math.sqrt(DifficultyData[gameDifficulty].tile))){
                         if(!$(`#tile${(y+j)*Math.sqrt(DifficultyData[gameDifficulty].tile)+x+i}`).hasClass("Revealed")){
                             $(`#tile${(y+j)*Math.sqrt(DifficultyData[gameDifficulty].tile)+x+i}`).click()
                         }
                     }
                 }
             }
+            $($(current).children()[0]).css("display","none")
         }
     }
 }
 
 function Game(){
     let switcher = false
+    let previousLine = switcher
     for (let i = 0;i<Math.sqrt(DifficultyData[gameDifficulty].tile);i++){
         ground.push([])
         for (let x = 0;x<Math.sqrt(DifficultyData[gameDifficulty].tile);x++){
@@ -96,20 +133,22 @@ function Game(){
             $("#Game").append("<div id='tile"+(i*Math.sqrt(DifficultyData[gameDifficulty].tile)+x)+"' x="+x+" y="+i+" class='tile "+currentClass+"'></div>")
             switcher = !switcher
         }
-        switcher = !switcher
+        switcher = !previousLine
+        previousLine = switcher
     }
     $('.tile').on('click',dealClick)
-    let mineCount = DifficultyData[gameDifficulty].mines
-    while(mineCount > 0){
-        let x = Math.floor(Math.random()*Math.sqrt(DifficultyData[gameDifficulty].tile))
-        let y = Math.floor(Math.random()*Math.sqrt(DifficultyData[gameDifficulty].tile))
-        if (ground[x][y] == 0){
-            ground[x][y] = 1
-            mineCount--
-        }
-    }
     $('.tile').css("width",90/Math.sqrt(DifficultyData[gameDifficulty].tile)+"vh")
     $('.tile').css("height",90/Math.sqrt(DifficultyData[gameDifficulty].tile)+"vh")
     $("#Game").css("width",90+"vh")
 
+}
+
+async function hash(string) {
+    const utf8 = new TextEncoder().encode(string);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', utf8);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray
+      .map((bytes) => bytes.toString(16).padStart(2, '0'))
+      .join('');
+    return hashHex;
 }

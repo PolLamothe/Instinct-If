@@ -1,13 +1,24 @@
 .tile{
     background-size: contain;
     background-repeat: no-repeat;
+    cursor: pointer;
+}
+.tile p{
+    margin: 0px;
+    margin-top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+body{
+    overflow-y: hidden;
 }
 #Game{
     display: flex;
     flex-direction: line;
     flex-wrap: wrap;
     margin-left: 50vw;
-    transform: translateX(-50%);
+    margin-top: 50vh;
+    transform: translate(-50%,-50%);
 }
 
 .Dark{
@@ -18,7 +29,7 @@
 }
 .Revealed{
     background-color: burlywood;
-    font-size: 200%;
+    font-size: 250%;
     text-align: center;
     font-family: Roboto;
     color: darkred;
