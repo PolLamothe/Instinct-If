@@ -1,0 +1,32 @@
+.tile{
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#Game{
+    display: flex;
+    flex-direction: line;
+    flex-wrap: wrap;
+    margin-left: 50vw;
+    transform: translateX(-50%);
+}
+
+.Dark{
+    background-color: rgba(0, 188, 72, 1);
+}
+.Light{
+    background-color: rgba(130, 222, 1, 1);
+}
+.Revealed{
+    background-color: burlywood;
+    font-size: 200%;
+    text-align: center;
+    font-family: Roboto;
+    color: darkred;
+}
+.marked{
+    background-image: url("./cross.webp");
+}
+.bomb{
+    background-image: url("./bomb.png");
+    background-position: center;
+}
