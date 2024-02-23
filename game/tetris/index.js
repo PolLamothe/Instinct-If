@@ -481,8 +481,14 @@ playBtn.addEventListener('keydown', function(event) {
         event.preventDefault();
     }
 });
+document.querySelector("#reset_btn").addEventListener('keydown', function(event) {
+    if (event.key === ' ' || event.key === 'Spacebar') {
+        event.preventDefault();
+    }
+});
 
-$('#rejouerButton').click(function(){
+// Rejouer
+function resetGame() {
     movingPiece.reset()
     ground = {}
     count = 0
@@ -491,6 +497,14 @@ $('#rejouerButton').click(function(){
     $('#playAgainDiv').css('display','none')
     eareaseAll()
     setGameState(true)
+}
+$('#rejouerButton').click(function(){
+    resetGame()
+    updatePlayBtn()
+})
+$('#reset_btn').click(function(){
+    resetGame()
+    updatePlayBtn()
 })
 
 setGameState(true) // Start game
