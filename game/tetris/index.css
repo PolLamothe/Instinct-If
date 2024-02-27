@@ -112,3 +112,14 @@ body,html{
     height: 20vh;
     background-color: #4545e3;
 }
+#nextPieceDiv{
+    position: absolute;
+    right: -15vw;
+    top: 20vh;
+    width: 20vh;
+    display: grid;
+    grid-template-columns: repeat(4, 4fr);
+    grid-row: repeat(4, 4fr);
+    box-sizing: border-box;
+    border: groove 15px #d0d0d0;
+}

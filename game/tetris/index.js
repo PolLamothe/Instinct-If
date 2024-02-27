@@ -13,6 +13,8 @@ const backgroundStyle = {
     "border": "solid #3a3a3a 1px"
 }
 
+var nextPieceValue = -1
+
 const timer = 500
 
 var count = 0
@@ -377,9 +379,26 @@ function draw(){
     }
 }
 
+function displayNext(){
+    let piece = pieces.allPiece[nextPieceValue]
+    for (let i = 0;i<piece.length;i++){
+        for(let x = 0;x<piece[i].length;x++){
+            $("#next"+(i*4+x+1)).css(backgroundStyle)
+            if(piece[i][x] == 1){
+                $("#next"+(i*4+x+1)).css(blocStyle[nextPieceValue+1])
+            }
+        }
+    }
+}
+
 function updatePiece(){
     if(movingPiece.type == 0){
-        var pieceChoice = Math.floor(Math.random() * (allPiece.length))
+        if(nextPieceValue == -1){
+            nextPieceValue =  Math.floor(Math.random() * (allPiece.length))
+        }
+        var pieceChoice =nextPieceValue
+        nextPieceValue =  Math.floor(Math.random() * (allPiece.length))
+        displayNext()
         var newPiece = allPiece[pieceChoice]
         movingPiece.type = (pieceChoice+1)
         var tempData = []
