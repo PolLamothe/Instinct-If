@@ -124,17 +124,16 @@
                     </form>
                 </div>
 
-                <!--
                 <div id="mdpForgetPage">
                     <form action="mdpForget" method="post">
                         <h2>Mot de Passe oublié</h2>
-                        <h4>Veuillir saisir l'adresse mail relier a votre compte afin de réinitialiser votre mot de passe</h4>
+                        <h4>Veuillez saisir l'adresse mail relier a votre compte afin de réinitialiser votre mot de passe</h4>
                         <input type="email" placeholder="E-mail" required><br>
+                        <input type="button" id="backMdpForget" value="Retour">
                         <input type="button" value="Valider">
                     </form>
                 </div>
-                -->
-                <!--
+
                 <div id="newAccountPage">
                     <form action="newAccount" method="post">
                         <h2>Créer Votre Compte</h2>
@@ -144,16 +143,15 @@
                         <h5>Prénom</h5>
                         <input type="text" required><br>
                         <h5>E-mail</h5>
-                        <input type="email" placeholder="Entrer un E-mail valide" required><br>
+                        <input type="email" placeholder="Entrer un e-mail valide" required><br>
                         <h5>Mot de Passe</h5>
-                        <input type="password" placeholder="entrer un Mot de Passe" required><br>
-                        <input type="password" placeholder="Confirmer le Mot de Passe" required><br>
-                        <input type="checkbox" name="recievedInfo" id="recievedInfo"><label for="recievedInfo">Souhaitez vous recevoir par mail toutes les informations sur chaques nouveau jeux à sa sortie et quelque tips pour améliorer vos performances !</label>
-                        <br>
+                        <input type="password" placeholder="Entrer un nouveau mot de Passe" required><br>
+                        <input type="password" placeholder="Confirmer le nouveau mot de Passe" required><br>
+                        <input type="checkbox" name="recievedInfo" id="recievedInfo"><label for="recievedInfo">Souhaitez-vous recevoir par mail des informations sur les nouveaux jeux à leur sortie et quelques tips pour améliorer vos performances !</label>
+                        <input type="button" id="backNewAccount" value="Retour">
                         <input type="button" value="Valider">
                     </form>
                 </div>
-                -->
             </section>
             <section id="game">
                 <iframe
@@ -171,5 +169,6 @@
     </main>
     <script src="js/index.js"></script>
     <script src="js/gameLauncher.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
