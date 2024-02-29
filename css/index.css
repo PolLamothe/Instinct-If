@@ -134,37 +134,66 @@ main {
 }
 
 .card {
-    width: 25vw;
-    height: 30vh;
-    border-radius: 22px;
-    position: relative;
-    transition: .2s ease-in-out;
+    //padding: 16px;
+    width: 27%;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.10);
 }
-.card:hover {
+/*.card:hover {
     box-shadow: 0 0 24px rgba(255, 255, 255, 0.25);
+}*/
+.card__img {
+    width: 100%;
+    height: 175px;
 }
 .card__title {
-    width: 100%;
-    height: 35%;
-    position: absolute;
-    bottom: 0;
-    border-radius: 0 0 22px 22px;
+    position: relative;
     font-weight: bold;
     font-size: 20px;
-    padding: 0 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #ffffff;
+    padding: 24px 24px 24px 48px;
+    color: #000000;
+    background: #ffffff;
 }
-.card__title .material-symbols-rounded {
+.card__title .material-symbols-rounded.play {
     font-size: 32px;
     cursor: pointer;
     user-select: none;
     transition: .2s ease-in-out;
 }
-.card__title .material-symbols-rounded:hover {
-    transform: scale(1.4);
+.card__title .material-symbols-rounded.play:hover {
+    transform: scale(1.3);
+}
+.card__title:before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    width: 16px;
+    height: 16px;
+    display: block;
+    background: #ffffff;
+    border-radius: 50px;
+}
+.card__note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.80);
+    padding: 10px;
+    border-radius: 0 0 16px 0;
+    background: #ffffff;
+
+    width: max-content;
+}
+.card__note .material-symbols-rounded {
+    color: #f7c400;
+    font-size: 22px;
 }
 
 #login {
@@ -283,33 +312,33 @@ main {
 /*
     JEUX
  */
-#mouse_c {
+#mouse_c .card__img{
     background: url("../assets/Mistigri-la-souris.png") no-repeat center top/cover;
 }
-#mouse_c .card__title {
-    background: rgba(0, 128, 0, 0.8);
+#mouse_c .card__title:before {
+    background: rgb(0, 128, 0);
 }
-#tic-tac-toe_c {
+#tic-tac-toe_c .card__img{
     background: url("../assets/Tic-Tac-Toe.png") no-repeat center top/cover;
 }
-#tic-tac-toe_c .card__title {
-    background: rgba(218, 112, 214, 0.8);
+#tic-tac-toe_c .card__title:before {
+    background: rgb(218, 112, 214);
 }
-#snake_c{
-    background: url("../assets/Snake.png") no-repeat center top/cover;
+#snake_c .card__img{
+    background: url("../assets/Snake-2.png") no-repeat center top/cover;
 }
-#snake_c .card__title {
-    background: rgba(197, 4, 4, 0.80);
+#snake_c .card__title:before {
+    background: rgb(197, 4, 4);
 }
-#tetris_c{
+#tetris_c .card__img {
     background: url("../assets/Tetris.png") no-repeat center top/cover;
 }
-#deminer_c{
-    background: url("../assets/deminer.png") no-repeat center top/cover;
+#tetris_c .card__title:before {
+    background: rgb(255, 165, 0);
 }
-#tetris_c .card__title {
-    background: rgba(255, 165, 0, 0.80);
+#deminer_c .card__img{
+    background: url("../assets/deminer-2.png") no-repeat center top/cover;
 }
-#deminer_c .card__title{
-    background:  	rgba(128,128,128,0.9)
+#deminer_c .card__title:before{
+    background: rgb(128,128,128);
 }
