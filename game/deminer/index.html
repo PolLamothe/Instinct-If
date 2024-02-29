@@ -10,17 +10,22 @@
 <body>
     <div id="startDiv">
         <h1>Choisissez la difficulté</h1>
-        <button class="difficultyButton">Facile</button>
-        <button class="difficultyButton">Moyen</button>
-        <button class="difficultyButton">Difficile</button>
+        <div id="buttonDiv">
+            <button class="difficultyButton" id="easyButton">Facile</button>
+            <button class="difficultyButton" id="mediumButton">Moyen</button>
+            <button class="difficultyButton" id="hardButton">Difficile</button>
+        </div>
     </div>
     <div id="Main">
         <div id="Game">
 
         </div>
-        <div id="Info">
+        <div id="Side">
+            <div id="Info">
                 <img src="./cross.webp">
                 <p id="crossCount"></p>
+            </div>
+            <button id="returnButton">Retour<img src="./back.png" id="returnIMG"></button>
         </div>
     </div>
     <div id="annonceVictoire" class="annonce"><p>Vous avez gagné !</p><button class="rejouerButton">Rejouer</button></div>

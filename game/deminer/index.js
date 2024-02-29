@@ -175,3 +175,7 @@ function reset(){
     $('#annonceDéfaite').css("display","none")
     $('#annonceVictoire').css("display","none")
 }
+
+$("#returnButton").on("click",function(){
+    reset()
+})

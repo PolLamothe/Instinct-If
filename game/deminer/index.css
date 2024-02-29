@@ -12,6 +12,7 @@
 body{
     overflow-y: hidden;
     margin: 0px;
+    height: fit-content;
 }
 #Game{
     display: flex;
@@ -59,7 +60,6 @@ body{
     border: solid 8px black;
     border-radius: 30px;
     padding: 1vw;
-    margin-left: 10vw;
     padding-left: 2vw;
     padding-right: 2vw;
 }
@@ -101,4 +101,83 @@ body{
 }
 .rejouerButton:hover{
     background-color: lightgreen;
+}
+#startDiv{
+    background-color: rgba(0, 188, 72, 1);
+    width: 100%;
+    height: 90vh;
+    margin-top: 50vh;
+    transform: translateY(-50%);
+    border-radius: 50px;
+}
+#startDiv h1{
+    color: white;
+    font-family: Roboto;
+    margin-top: 5vh;
+    position: absolute;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+#buttonDiv{
+    margin-left: 50%;
+    transform: translate(-50%,-50%);
+    width: fit-content;
+    margin-top: 45vh;
+    position: absolute;
+    height: fit-content;
+    display: flex;
+    gap: 10vw;
+}
+.difficultyButton{
+    font-size: 30px;
+    font-family: Roboto;
+    border: none;
+    padding: 1vw;
+    border-radius: 30px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+.difficultyButton:hover{
+    transform: scale(1.2);
+    color: white;
+    box-shadow: 0 0px 30px lightgray;
+}
+#easyButton{
+    background-color: lightgreen;
+}
+#mediumButton{
+    background-color: yellow;
+}
+#hardButton{
+    background-color: red;
+}
+#Side{
+    width: fit-content;
+    margin-left: 5vw;
+}
+#returnButton{
+    font-size: 30px;
+    width: fit-content;
+    background-color: burlywood;
+    font-family: Roboto;
+    margin-top: 5vh;
+    padding: 1vw;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    transition-duration: 0.5s;
+}
+#returnButton img{
+    width: 3vw;
+    transition-duration: 0.5s;
+}
+#returnButton:hover{
+    transform: scale(1.2);
+    color: white;
+}
+#returnButton:hover #returnIMG{
+    filter: invert(100%);
 }
