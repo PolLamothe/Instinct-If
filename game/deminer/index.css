@@ -1,3 +1,19 @@
+:root {
+    --bg1: #181735;
+    --bg2: #444394;
+    --bg3: #ffffff;
+    --text-color: #ffffff;
+    --text-color-inactive: rgba(255, 255, 255, 0.5);
+    --fs-bg: rgba(24, 23, 53, 0.70);
+}
+@media (prefers-color-scheme: light) {
+    .dark_mode {
+        --bg1: #f4f4f4;
+        --bg3: #181735;
+        --text-color: #444394;
+        --fs-bg: rgba(244, 244, 244, 0.70);
+    }
+}
 .tile{
     background-size: contain;
     background-repeat: no-repeat;
@@ -10,9 +26,9 @@
     cursor: pointer;
 }
 body{
-    overflow-y: hidden;
     margin: 0px;
     height: fit-content;
+    overflow: hidden;
 }
 #Game{
     display: flex;
@@ -57,7 +73,7 @@ body{
     display: flex;
     align-items: center;
     gap: 1vw;
-    border: solid 8px black;
+    border: solid 8px var(--bg3);
     border-radius: 30px;
     padding: 1vw;
     padding-left: 2vw;
@@ -69,6 +85,7 @@ body{
 #Info p{
     font-family: Roboto;
     font-size: 25px;
+    color: var(--text-color);
 }
 .annonce{
     display: none;
@@ -111,7 +128,7 @@ body{
     border-radius: 50px;
 }
 #startDiv h1{
-    color: white;
+    color: var(--text-color);
     font-family: Roboto;
     margin-top: 5vh;
     position: absolute;

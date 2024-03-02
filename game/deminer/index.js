@@ -179,3 +179,10 @@ function reset(){
 $("#returnButton").on("click",function(){
     reset()
 })
+
+window.addEventListener("message",function(event){
+    console.log(event.data)
+        for (let [key,value] of Object.entries(event.data)){
+            $("html").css(key,value)
+        }
+})
