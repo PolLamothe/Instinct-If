@@ -46,40 +46,40 @@ navItems.forEach(item => {
 })
 
 // Dark mode
-let toogleDark = document.querySelector("#dark-mode")
+let toggleDark = document.querySelector("#dark-mode")
 let root = document.documentElement
-let darkChange = {
-    "--bg1": "#f4f4f4",
-    "--bg3": "#181735",
-    "--text-color": "#444394",
-    "--fs-bg": "rgba(244, 244, 244, 0.70)"
-}
 
-let lightChange = {
-    "--bg1" : "#181735",
+let darkMode = {
+    "--bg1": "#181735",
     "--bg2": "#444394",
     "--bg3": "#ffffff",
     "--text-color": "#ffffff",
     "--text-color-inactive": "rgba(255, 255, 255, 0.5)",
     "--fs-bg": "rgba(24, 23, 53, 0.70)"
 }
+let lightMode = {
+    "--bg1": "#f4f4f4",
+    "--bg2": "#444394",
+    "--bg3": "#181735",
+    "--text-color": "#444394",
+    "--text-color-inactive": "rgba(255, 255, 255, 0.5)",
+    "--fs-bg": "rgba(244, 244, 244, 0.70)"
+}
 
-toogleDark.addEventListener('click', () => {
-    if (toogleDark.checked) {
-        root.classList.remove("dark_mode")
-    } else {
+// Dark mode par défaut en fonction de l'utilisateur
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    root.classList.add("dark_mode")
+}
+
+toggleDark.addEventListener('click', () => {
+    if (toggleDark.checked) {
         root.classList.add("dark_mode")
+        document.querySelector(".game-screen").contentWindow.postMessage(darkMode)
+    } else {
+        root.classList.remove("dark_mode")
+        document.querySelector(".game-screen").contentWindow.postMessage(lightMode)
     }
-    if(!toogleDark.checked){
-        for (let [key,value] of Object.entries(darkChange)){
-            $("html").css(key,value)
-        }
-        document.getElementById("game-frame").contentWindow.postMessage(darkChange)
-    }else{
-        for (let [key,value] of Object.entries(lightChange)){
-            $("html").css(key,value)
-        }
-        document.getElementById("game-frame").contentWindow.postMessage(lightChange)
-    }
+    console.log(toggleDark.checked)
 })
-toogleDark.checked = !root.classList.contains("dark_mode")
+
+toggleDark.checked = root.classList.contains("dark_mode")

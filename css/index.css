@@ -1,19 +1,19 @@
 :root {
+    --bg1: #f4f4f4;
+    --bg2: #444394;
+    --bg3: #181735;
+    --text-color: #444394;
+    --text-color-inactive: rgba(255, 255, 255, 0.5);
+    --fs-bg: rgba(244, 244, 244, 0.70);
+}
+
+.dark_mode {
     --bg1: #181735;
     --bg2: #444394;
     --bg3: #ffffff;
     --text-color: #ffffff;
     --text-color-inactive: rgba(255, 255, 255, 0.5);
     --fs-bg: rgba(24, 23, 53, 0.70);
-}
-
-@media (prefers-color-scheme: light) {
-    .dark_mode {
-        --bg1: #f4f4f4;
-        --bg3: #181735;
-        --text-color: #444394;
-        --fs-bg: rgba(244, 244, 244, 0.70);
-    }
 }
 
 * {
