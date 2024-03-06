@@ -79,7 +79,95 @@ toggleDark.addEventListener('click', () => {
         root.classList.remove("dark_mode")
         document.querySelector(".game-screen").contentWindow.postMessage(lightMode)
     }
-    console.log(toggleDark.checked)
 })
 
 toggleDark.checked = root.classList.contains("dark_mode")
+
+//-------------------------------
+// Critères de recherche home page
+//-------------------------------
+let search = ""
+let note = "descending"
+let categories = {
+    psychology: true,
+    bolt: true
+}
+let gameList = []
+let allGamesCards = document.querySelectorAll(".card")
+const bestGames = document.querySelector(".bestGames")
+
+allGamesCards.forEach(game => {
+    let gameInfos = {
+        name: document.querySelector(`#${game.id} .card__game__title`).innerText,
+        note: parseInt(document.querySelector(`#${game.id} .card__note__number`).innerText),
+        category: document.querySelector(`#${game.id} .card__title__left .material-symbols-rounded`).innerText,
+        element: game
+    }
+    gameList.push(gameInfos)
+})
+
+function gameSortAscending(a, b) {
+    if (a.note > b.note) {
+        return 1
+    } else if (a.note === b.note) {
+        return 0
+    }
+    return -1
+}
+function gameSortDescending(a, b) {
+    if (a.note < b.note) {
+        return 1
+    } else if (a.note === b.note) {
+        return 0
+    }
+    return -1
+}
+
+function query() {
+    let gameQuery = []
+    gameList.forEach(game => {
+        let gNameNormalize = game.name.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '')
+        let searchNormalize = search.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '')
+
+        if (gNameNormalize.includes(searchNormalize) && ((game.category === "psychology" && categories.psychology) || (game.category === "bolt" && categories.bolt))) {
+            gameQuery.push(game)
+        }
+    })
+    let gameQuerySorted = []
+    if (note === "descending") {
+        gameQuery.sort(gameSortDescending)
+    } else if (note === "ascending") {
+        gameQuery.sort(gameSortAscending)
+    }
+    gameQuery.forEach(g => {
+        gameQuerySorted.push(g.element)
+    })
+    bestGames.replaceChildren(...gameQuerySorted)
+}
+
+// Search
+const searchInput = document.querySelector(".search__field")
+searchInput.addEventListener("input", (e) => {
+    search = e.target.value
+    query()
+})
+
+// Note
+const noteInput = document.querySelector("#note_selection")
+noteInput.addEventListener("input", (e) => {
+    note = e.target.value
+    query()
+})
+
+// Categories
+const categoryPsychology = document.querySelector("#cat_psychology")
+const categoryBolt = document.querySelector("#cat_bolt")
+categoryPsychology.addEventListener("input", (e) => {
+    categories.psychology = e.target.checked
+    query()
+})
+categoryBolt.addEventListener("input", (e) => {
+    categories.bolt = e.target.checked
+    query()
+})
+

@@ -69,7 +69,6 @@ header .material-symbols-rounded:hover {
     justify-content: space-around;
     align-items: center;
     padding: 32px 64px;
-    /*background: rgba(68, 67, 148, 0.2);*/
 }
 .theme-toggle {
     position: absolute;
@@ -106,7 +105,7 @@ main {
     transition: background-color .5s;
 }
 .container {
-    padding: 32px 64px;
+    padding: 16px 64px;
 }
 
 .git {
@@ -127,25 +126,129 @@ main {
     height: 20px;
 }
 
+/*
+    HOME
+*/
+.home_search {
+    margin-bottom: 64px;
+    padding-left: 32px;
+    display: flex;
+    justify-content: start;
+    gap: 32px;
+    align-items: end;
+    color: var(--bg3);
+}
 
 .bestGames {
     display: flex;
     gap: 32px;
 }
 
+.search__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: solid var(--text-color) 2px;
+    padding: 4px;
+}
+.search__field {
+    width: 20vw;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--bg3);
+    background: none;
+    appearance: none;
+    border: none;
+}
+.search__field:focus {
+    outline: none;
+}
+.search__icon {
+    cursor: pointer;
+    color: var(--text-color);
+    background: none;
+    appearance: none;
+    border: none;
+    border-radius: 50px;
+    padding: 6px 8px;
+    transition: all .4s;
+}
+.search__icon:focus {
+    outline: solid var(--text-color) 1px;
+}
+.search__icon:hover {
+    background: var(--text-color);
+    color: var(--bg1);
+}
+
+.settings__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 0;
+}
+.settings__wrapper .star {
+    color: #f7c400;
+    font-size: 22px;
+}
+.note__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.note__select {
+    position: relative;
+}
+.note__select .material-symbols-rounded {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#note_selection {
+    color: inherit;
+    font-size: 16px;
+    border: none;
+    background: rgba(255, 255, 255, 0.0);
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 8px 48px 8px 12px;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    transition: .2s;
+    width: max-content;
+}
+#note_selection:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+.cat__choose {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    font-size: 16px;
+    user-select: none;
+}
+.cat__choose input {
+    accent-color: var(--bg2);
+}
+
 .card {
-    //padding: 16px;
     width: 27%;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.10);
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.15);
 }
-/*.card:hover {
-    box-shadow: 0 0 24px rgba(255, 255, 255, 0.25);
-}*/
+.dark_mode .card {
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.15);
+}
 .card__img {
     width: 100%;
-    height: 175px;
+    height: 20vh;
 }
 .card__title {
     position: relative;
@@ -154,9 +257,20 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 24px 24px 48px;
+    padding: 32px;
     color: #000000;
     background: #ffffff;
+    transition: all .3s;
+}
+.dark_mode .card__title {
+    background: #2C2D59;
+    color: #ffffff;
+}
+.card__title__left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
 }
 .card__title .material-symbols-rounded.play {
     font-size: 32px;
@@ -166,16 +280,6 @@ main {
 }
 .card__title .material-symbols-rounded.play:hover {
     transform: scale(1.3);
-}
-.card__title:before {
-    content: "";
-    position: absolute;
-    left: 20px;
-    width: 16px;
-    height: 16px;
-    display: block;
-    background: #ffffff;
-    border-radius: 50px;
 }
 .card__note {
     display: flex;
@@ -188,7 +292,6 @@ main {
     padding: 10px;
     border-radius: 0 0 16px 0;
     background: #ffffff;
-
     width: max-content;
 }
 .card__note .material-symbols-rounded {
@@ -196,9 +299,9 @@ main {
     font-size: 22px;
 }
 
-#login {
-    display: none;
-}
+/*
+    GAME
+*/
 
 #game {
     display: none;
@@ -301,6 +404,10 @@ main {
 /*
     LOGIN
  */
+#login {
+    display: none;
+}
+
 #newAccountPage {
     display: none;
 }
@@ -312,33 +419,19 @@ main {
 /*
     JEUX
  */
+
 #mouse_c .card__img{
     background: url("../assets/Mistigri-la-souris.png") no-repeat center top/cover;
-}
-#mouse_c .card__title:before {
-    background: rgb(0, 128, 0);
 }
 #tic-tac-toe_c .card__img{
     background: url("../assets/Tic-Tac-Toe.png") no-repeat center top/cover;
 }
-#tic-tac-toe_c .card__title:before {
-    background: rgb(218, 112, 214);
-}
 #snake_c .card__img{
     background: url("../assets/Snake-2.png") no-repeat center top/cover;
-}
-#snake_c .card__title:before {
-    background: rgb(197, 4, 4);
 }
 #tetris_c .card__img {
     background: url("../assets/Tetris.png") no-repeat center top/cover;
 }
-#tetris_c .card__title:before {
-    background: rgb(255, 165, 0);
-}
 #deminer_c .card__img{
     background: url("../assets/deminer-2.png") no-repeat center top/cover;
-}
-#deminer_c .card__title:before{
-    background: rgb(128,128,128);
 }

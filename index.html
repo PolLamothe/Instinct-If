@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Instinct If</title>
+    <link rel="icon" href="favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/theme-toggles@4.10.1_css_around.css">
@@ -75,16 +76,47 @@
         </div>
         <div class="container">
             <section id="home">
+                <div class="home_search">
+                    <div class="search__wrapper">
+                        <input type="text" name="" placeholder="Rechercher un jeu" class="search__field">
+                        <button type="submit" class="search__icon"><span class="material-symbols-rounded">search</span></button>
+                    </div>
+                    <div class="settings__wrapper">
+                        <div class="note__wrapper">
+                            <span class="material-symbols-rounded star">star</span>
+                            <label class="note__select">
+                                <select name="note_selection" id="note_selection">
+                                    <option value="descending">Notes décroissantes</option>
+                                    <option value="ascending">Notes croissantes</option>
+                                </select>
+                                <span class="material-symbols-rounded">expand_more</span>
+                            </label>
+                        </div>
+                        <label class="cat__choose">
+                            <input type="checkbox" value="Réflexion" checked id="cat_psychology">
+                            <span class="material-symbols-rounded">psychology</span>
+                            Réflexion
+                        </label>
+                        <label class="cat__choose">
+                            <input type="checkbox" value="Rapidité" checked id="cat_bolt">
+                            <span class="material-symbols-rounded">bolt</span>
+                            Rapidité
+                        </label>
+                    </div>
+                </div>
                 <div class="bestGames">
                     <div class="card" id="tetris_c">
                         <div class="card__img">
                             <div class="card__note">
                                 <span class="material-symbols-rounded">star</span>
-                                5/5
+                                <span class="card__note__number">5</span>
                             </div>
                         </div>
                         <div class="card__title">
-                            <p>Tetris</p>
+                            <div class="card__title__left">
+                                <span class="material-symbols-rounded">bolt</span>
+                                <p class="card__game__title">Tetris</p>
+                            </div>
                             <span class="material-symbols-rounded play" id="tetris">play_circle</span>
                         </div>
                     </div>
@@ -92,11 +124,14 @@
                         <div class="card__img">
                             <div class="card__note">
                                 <span class="material-symbols-rounded">star</span>
-                                3/5
+                                <span class="card__note__number">4</span>
                             </div>
                         </div>
                         <div class="card__title">
-                            <p>Démineur</p>
+                            <div class="card__title__left">
+                                <span class="material-symbols-rounded">psychology</span>
+                                <p class="card__game__title">Démineur</p>
+                            </div>
                             <span class="material-symbols-rounded play play" id="deminer">play_circle</span>
                         </div>
                     </div>
@@ -104,11 +139,14 @@
                         <div class="card__img">
                             <div class="card__note">
                                 <span class="material-symbols-rounded">star</span>
-                                4/5
+                                <span class="card__note__number">4</span>
                             </div>
                         </div>
                         <div class="card__title">
-                            <p>Snake</p>
+                            <div class="card__title__left">
+                                <span class="material-symbols-rounded">bolt</span>
+                                <p class="card__game__title">Snake</p>
+                            </div>
                             <span class="material-symbols-rounded play" id="snake">play_circle</span>
                         </div>
                     </div>
@@ -116,11 +154,14 @@
                         <div class="card__img">
                             <div class="card__note">
                                 <span class="material-symbols-rounded">star</span>
-                                3/5
+                                <span class="card__note__number">3</span>
                             </div>
                         </div>
                         <div class="card__title">
-                            <p>Tic-tac-toe</p>
+                            <div class="card__title__left">
+                                <span class="material-symbols-rounded">psychology</span>
+                                <p class="card__game__title">Tic-tac-toe</p>
+                            </div>
                             <span class="material-symbols-rounded play" id="tic-tac-toe">play_circle</span>
                         </div>
                     </div>
@@ -128,11 +169,14 @@
                         <div class="card__img">
                             <div class="card__note">
                                 <span class="material-symbols-rounded">star</span>
-                                2/5
+                                <span class="card__note__number">2</span>
                             </div>
                         </div>
                         <div class="card__title">
-                            <p>Mistigri la souris</p>
+                            <div class="card__title__left">
+                                <span class="material-symbols-rounded">psychology</span>
+                                <p class="card__game__title">Mistigri la souris</p>
+                            </div>
                             <span class="material-symbols-rounded play play" id="mouse">play_circle</span>
                         </div>
                     </div>
