@@ -404,16 +404,218 @@ main {
 /*
     LOGIN
  */
+
 #login {
     display: none;
 }
+
+#connexionPage {
+    display: flex;
+    height: 60vh;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+#connexionPage form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 55%;
+    height: 80%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 30px 30px 30px 30px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+    font-size: small;
+}
+
+.em{
+    width: 65%;
+    height: 15%;
+    border: 1px solid rgb(204, 203, 203);
+    border-radius: 25px 25px 25px 25px;
+    font-weight: 200;
+    transition: border 1s;
+}
+
+.em:hover{
+    border: 1px solid #181735;;
+}
+
+/*A REVOIR*/
+/*.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}*/
+
+
+
+.psd {
+    width: 65%;
+    height: 15%;
+    border: 1px solid rgb(204, 203, 203);
+    border-radius: 25px 25px 25px 25px;
+    font-weight: 200;
+    transition: border 1s;
+}
+
+.psd:hover{
+    border: 1px solid #181735;;
+}
+
+.val {
+    width: 25%;
+    height: 15%;
+    color: rgb(172, 171, 171);
+    font-size: large;
+    font-weight: 200;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #181735;
+    border-radius: 25px 25px 25px 25px;
+    transition: background-color 0.6s;
+}
+
+.val:hover{
+    background-color: #181735;
+    color: white;
+}
+
+
 
 #newAccountPage {
     display: none;
 }
 
+#newAccountPage {
+    display: none; /* Par défaut, la page est cachée */
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+#newAccountPage form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 55%;
+    height: 80%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 30px; /* Même arrondi que pour la page de connexion */
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+    font-size: small;
+}
+
+.pre, .no, .em2, .psd1, .psd2 {
+    width: 65%;
+    height: 15%;
+    border: 1px solid rgb(204, 203, 203);
+    border-radius: 25px;
+    font-weight: 200;
+    transition: border 1s;
+}
+
+.pre:hover, .no:hover, .em2:hover, .psd1:hover, .psd2:hover {
+    border: 1px solid #181735;
+}
+
+
+
+
+.ba1, .val2 {
+    width: 25%;
+    height: 15%;
+    color: rgb(172, 171, 171);
+    font-size: large;
+    font-weight: 200;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #181735;
+    border-radius: 25px;
+    transition: background-color 0.6s;
+}
+
+.ba1:hover, .val2:hover {
+    background-color: #181735;
+    color: white;
+}
+
+
+
+
 #mdpForgetPage {
     display: none;
+}
+
+#mdpForgetPage {
+    display: flex;
+    height: 40vh;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+#mdpForgetPage form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 55%;
+    height: 80%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 30px 30px 30px 30px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+    font-size: small;
+}
+
+.em1{
+    width: 80%;
+    height: 15%;
+    border: 1px solid rgb(204, 203, 203);
+    border-radius: 25px 25px 25px 25px;
+    font-weight: 200;
+    transition: border 1s;
+}
+
+.em1:hover{
+    border: 1px solid #181735;;
+}
+
+.ba{
+    width: 25%;
+    height: 20%;
+    color: rgb(172, 171, 171);
+    font-size: large;
+    font-weight: 200;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #181735;
+    border-radius: 25px 25px 25px 25px;
+    transition: background-color 0.6s;
+}
+
+.ba:hover{
+    background-color: #181735;
+    color: white;
+}
+
+.val1 {
+    width: 25%;
+    height: 20%;
+    margin-left: 10px;
+    color: rgb(172, 171, 171);
+    font-size: large;
+    font-weight: 200;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #181735;
+    border-radius: 25px 25px 25px 25px;
+    transition: background-color 0.6s;
+}
+
+.val1:hover{
+    background-color: #181735;
+    color: white;
 }
 
 /*
