@@ -663,10 +663,12 @@ main {
         bottom: 0px;
         z-index: 10;
         background-color: #444394;
+        justify-content: space-around;
     }    
     main{
         border-radius: 0px;
         height: fit-content;
+        min-height: 90vh;
     }
     .theme-toggle{
         right: 10vw;
@@ -683,16 +685,31 @@ main {
     .home_search{
         flex-direction: column;
         gap: 3vh;
-    }
-    .search__wrapper{
         margin-left: 50%;
         transform: translateX(-50%);
+        padding-left: 0px;
+        width: fit-content;
+        justify-content: center;
+    }
+    .search__wrapper{
+        width: fit-content;
+        position: relative;
+        margin-right: 50%;
+        transform: translateX(50%);
+        padding: 0px;
     }
     .card{
         width: 100%;
+        height: max-content;
+    }
+    .card__img{
+        aspect-ratio: 3/1;
+        object-fit: contain;
     }
     .bestGames{
         position: relative;
+        height: max-content;
+        overflow: visible;
     }
     .git{
         position: relative;
@@ -700,5 +717,15 @@ main {
     }
     .notResp{
         display: none !important;
+    }
+    .game-screen{
+        height: 65vh;
+        width: 90vw;
+    }
+    .play{
+        display: none!important;
+    }
+    #nav-game2{
+        display: none;
     }
 }
