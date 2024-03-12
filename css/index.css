@@ -142,6 +142,11 @@ main {
 .bestGames {
     display: flex;
     gap: 32px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: scroll;
+    height: 70vh;
+    padding: 32px;
 }
 
 .search__wrapper {
@@ -248,7 +253,7 @@ main {
 }
 .card__img {
     width: 100%;
-    height: 20vh;
+    height: 70%;
 }
 .card__title {
     position: relative;
@@ -395,17 +400,19 @@ main {
 #game-selection:hover {
     background: rgba(255, 255, 255, 0.10);
 }
-.bestGames{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
 
 /*
     LOGIN
  */
 
 #login {
+    display: none;
+}
+
+#mdpForgetPage {
+    display: none;
+}
+#mdpForgetPage {
     display: none;
 }
 
@@ -422,12 +429,16 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 12px;
     width: 55%;
-    height: 80%;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 30px 30px 30px 30px;
+    padding: 32px 0;
+    background-color: #ffffff;
+    border-radius: 50px;
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
-    font-size: small;
+}
+
+.dark_mode #connexionPage form {
+    background-color: #2C2D59;
 }
 
 .em{
@@ -437,6 +448,7 @@ main {
     border-radius: 25px 25px 25px 25px;
     font-weight: 200;
     transition: border 1s;
+    font-size: 16px;
 }
 
 .em:hover{
@@ -444,13 +456,11 @@ main {
 }
 
 /*A REVOIR*/
-/*.error-message {
+.error-message {
     color: red;
     font-size: 12px;
     margin-top: 5px;
-}*/
-
-
+}
 
 .psd {
     width: 65%;
@@ -459,6 +469,7 @@ main {
     border-radius: 25px 25px 25px 25px;
     font-weight: 200;
     transition: border 1s;
+    font-size: 16px;
 }
 
 .psd:hover{
@@ -469,7 +480,7 @@ main {
     width: 25%;
     height: 15%;
     color: rgb(172, 171, 171);
-    font-size: large;
+    font-size: 24px;
     font-weight: 200;
     background-color: rgb(255, 255, 255);
     border: 1px solid #181735;
@@ -483,15 +494,10 @@ main {
 }
 
 
-
 #newAccountPage {
     display: none;
-}
 
-#newAccountPage {
-    display: none; /* Par défaut, la page est cachée */
     height: 60vh;
-    display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
@@ -504,10 +510,18 @@ main {
     flex-direction: column;
     width: 55%;
     height: 80%;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: #ffffff;
     border-radius: 30px; /* Même arrondi que pour la page de connexion */
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
     font-size: small;
+}
+
+.dark_mode #newAccountPage form {
+    background-color: #2C2D59;
+}
+
+.newAccountBtn {
+    display: flex;
 }
 
 .pre, .no, .em2, .psd1, .psd2 {
@@ -523,12 +537,8 @@ main {
     border: 1px solid #181735;
 }
 
-
-
-
 .ba1, .val2 {
-    width: 25%;
-    height: 15%;
+    padding: 8px 16px;
     color: rgb(172, 171, 171);
     font-size: large;
     font-weight: 200;
@@ -543,15 +553,11 @@ main {
     color: white;
 }
 
-
-
-
 #mdpForgetPage {
     display: none;
 }
 
 #mdpForgetPage {
-    display: flex;
     height: 40vh;
     align-items: center;
     justify-content: space-around;
@@ -564,10 +570,14 @@ main {
     flex-wrap: wrap;
     width: 55%;
     height: 80%;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: #ffffff;
     border-radius: 30px 30px 30px 30px;
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
     font-size: small;
+}
+
+.dark_mode #mdpForgetPage form {
+    background-color: #2C2D59;
 }
 
 .em1{
