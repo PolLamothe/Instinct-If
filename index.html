@@ -182,19 +182,21 @@
                     </div>
                 </div>
             </section>
-            <section id="login">
+           <section id="login">
                 <div id="connexionPage">
                     <h1>CONNEXION</h1>
                     <form action="Login" method="post">
                         <h2>Identifiant</h2>
-                        <input type="email" name="Identifiant" placeholder="E-mail" required><br>
+                        <input type="email" class="em" name="Identifiant" style="padding: 20px;" placeholder="E-mail" required><br>
+                        <!-- <div id="emailError" class="error-message" style="display: none;">Veuillez entrer une adresse e-mail valide. Vérifier qu'elle est bien composée des éléments qu'une adresse mail à besoin s'il vous plait. </div> -->
                         <h2>Mot de Passe</h2>
-                        <input type="Mot de Passe" name="Mot de Passe">
+                        <input type="password" class="psd" name="Mot de Passe" style="padding: 20px;" placeholder="Mot De Passe">
                         <br>
                         <a href="#" id="mdpForget">Mot de Passe oublié ? </a>
                         <br>
                         <a href="#" id="newAccount">Nouveau</a>
-                        <input type="button" value="Valider">
+                        <br>
+                        <input type="submit" class="val" value="Se Connecter">
                     </form>
                 </div>
 
@@ -202,9 +204,9 @@
                     <form action="mdpForget" method="post">
                         <h2>Mot de Passe oublié</h2>
                         <h4>Veuillez saisir l'adresse mail relier a votre compte afin de réinitialiser votre mot de passe</h4>
-                        <input type="email" placeholder="E-mail" required><br>
-                        <input type="button" id="backMdpForget" value="Retour">
-                        <input type="button" value="Valider">
+                        <input type="email" class="em1" style="padding: 20px;" placeholder="E-mail" required><br>
+                        <input type="button" class="ba" id="backMdpForget" value="Retour">
+                        <input type="button" class="val1" value="Valider">
                     </form>
                 </div>
 
@@ -213,17 +215,22 @@
                         <h2>Créer Votre Compte</h2>
                         <h4>Veuillez saisir les informations suivantes pour créer un nouveau compte</h4>
                         <h5>Nom</h5>
-                        <input type="text" required><br>
+                        <br>
+                        <input type="text" class="pre" required><br>
                         <h5>Prénom</h5>
-                        <input type="text" required><br>
+                        <br>
+                        <input type="text" class="no" required><br>
                         <h5>E-mail</h5>
-                        <input type="email" placeholder="Entrer un e-mail valide" required><br>
+                        <br>
+                        <input type="email" class="em2" placeholder="Entrer un e-mail valide" required><br>
                         <h5>Mot de Passe</h5>
-                        <input type="password" placeholder="Entrer un nouveau mot de Passe" required><br>
-                        <input type="password" placeholder="Confirmer le nouveau mot de Passe" required><br>
-                        <input type="checkbox" name="recievedInfo" id="recievedInfo"><label for="recievedInfo">Souhaitez-vous recevoir par mail des informations sur les nouveaux jeux à leur sortie et quelques tips pour améliorer vos performances !</label>
-                        <input type="button" id="backNewAccount" value="Retour">
-                        <input type="button" value="Valider">
+                        <br>
+                        <input type="password" class="psd1" placeholder="Entrer un nouveau mot de Passe" required><br>
+                        <input type="password" class="psd2" placeholder="Confirmer le nouveau mot de Passe" required><br>
+                        <input type="checkbox" class="recie" name="recievedInfo" id="recievedInfo">
+                        <label for="recievedInfo">Souhaitez-vous recevoir par mail des informations sur les nouveaux jeux à leur sortie et quelques tips pour améliorer vos performances !</label>
+                        <input type="button" class="ba1" id="backNewAccount" value="Retour">
+                        <input type="button" class="val2" value="Valider">
                     </form>
                 </div>
             </section>
