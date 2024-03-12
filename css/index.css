@@ -637,3 +637,58 @@ main {
 #deminer_c .card__img{
     background: url("../assets/deminer-2.png") no-repeat center top/cover;
 }
+
+@media screen and (max-width: 1000px){
+    body{
+        flex-direction: column-reverse;
+        overflow-x: none;
+        height: max-content;
+        overflow: scroll;
+    }
+    header{
+        width: 100vw;
+        height: 10vh;
+        flex-direction: row;
+        position: sticky;
+        bottom: 0px;
+        z-index: 10;
+        background-color: #444394;
+    }    
+    main{
+        border-radius: 0px;
+        height: fit-content;
+    }
+    .theme-toggle{
+        right: 10vw;
+    }
+    .logo-title{
+        margin-right: 20vw;
+    }
+    .title{
+        width: max-content;
+    }
+    .settings__wrapper{
+        flex-direction: column;
+    }
+    .home_search{
+        flex-direction: column;
+        gap: 3vh;
+    }
+    .search__wrapper{
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+    .card{
+        width: 100%;
+    }
+    .bestGames{
+        position: relative;
+    }
+    .git{
+        position: relative;
+        margin-top: 5vh;
+    }
+    .notResp{
+        display: none !important;
+    }
+}
