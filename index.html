@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
+    <link href="https://fonts.googleapis.com/css2?family=Faster+One&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -182,19 +183,19 @@
                     </div>
                 </div>
             </section>
-           <section id="login">
+            <section id="login">
                 <div id="connexionPage">
                     <h1>CONNEXION</h1>
                     <form action="" method="post">
                         <h2>Identifiant</h2>
                         <input type="text" class="em" name="Identifiant" style="padding: 20px;" placeholder="E-mail" required><br>
-                         <div id="emailError" class="error-message" style="display: none;">Veuillez entrer une adresse e-mail valide. Vérifier qu'elle est bien composée des éléments qu'une adresse mail à besoin s'il vous plait. </div>
+                        <div id="emailError" class="error-message" style="display: none;">Veuillez entrer une adresse e-mail valide. Vérifier qu'elle est bien composée des éléments qu'une adresse mail à besoin s'il vous plait. </div>
                         <h2>Mot de Passe</h2>
                         <input type="password" class="psd" name="Mot de Passe" style="padding: 20px;" placeholder="Mot De Passe">
                         <br>
-                        <a href="#" id="mdpForget">Mot de Passe oublié ? </a>
+                        <a href="#" class="mdpflien" id="mdpForget">Mot de Passe oublié ? </a>
                         <br>
-                        <a href="#" id="newAccount">Nouveau</a>
+                        <a href="#" class="newalien" id="newAccount">Nouveau</a>
                         <br>
                         <input type="submit" class="val" value="Se Connecter">
                     </form>
@@ -204,7 +205,8 @@
                     <form action="" method="post">
                         <h2>Mot de Passe oublié</h2>
                         <h4>Veuillez saisir l'adresse mail relier a votre compte afin de réinitialiser votre mot de passe</h4>
-                        <input type="email" class="em1" style="padding: 20px;" placeholder="E-mail" required><br>
+                        <input type="text" class="em1" style="padding: 20px;" placeholder="E-mail" required><br>
+                        <div id="email2Error" class="error-message2" style="display: none;">Veuillez entrer une adresse e-mail valide. Vérifier qu'elle est bien composée des éléments qu'une adresse mail à besoin s'il vous plait. </div>
                         <input type="button" class="ba" id="backMdpForget" value="Retour">
                         <input type="button" class="val1" value="Valider">
                     </form>
@@ -222,14 +224,16 @@
                         <input type="text" class="no" required><br>
                         <h5>E-mail</h5>
                         <br>
-                        <input type="email" class="em2" placeholder="Entrer un e-mail valide" required><br>
+                        <input type="text" class="em2" placeholder="Entrer un e-mail" required><br>
+                        <div id="email3Error" class="error-message3" style="display: none;">Veuillez entrer une adresse e-mail valide. Vérifier qu'elle est bien composée des éléments qu'une adresse mail à besoin s'il vous plait. </div>
                         <h5>Mot de Passe</h5>
                         <br>
-                        <input type="password" class="psd1" placeholder="Entrer un nouveau mot de Passe" required><br>
-                        <input type="password" class="psd2" placeholder="Confirmer le nouveau mot de Passe" required><br>
+                        <input type="password" class="psd1" id="password1" placeholder="Entrer un mot de passe" required><br>
+                        <input type="password" class="psd2" id="password2" placeholder="Confirmer le mot de passe" required><br>
+                        <div id="passwordMismatchError" style="display: none;">Les mots de passe ne correspondent pas.</div>
 
-                        <label for="recievedInfo">
-                            <input type="checkbox" class="recie" name="recievedInfo" id="recievedInfo">
+                        <label class="recie" for="recievedInfo">
+                            <input type="checkbox" name="recievedInfo" id="recievedInfo">
                             Souhaitez-vous recevoir par mail des informations sur les nouveaux jeux à leur sortie et quelques tips pour améliorer vos performances !
                         </label>
                         <div class="newAccountBtn">
