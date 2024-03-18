@@ -191,7 +191,7 @@ $(".case").on("click", function(e) {
     if (e.target.children[0].innerHTML == ""){
         game[e.target.children[0].id] = turn    
         var IAPlay = ""
-        if($("#npcState")[0].innerHTML != "Gentil Personne"){
+        if($("#hater").attr("src") != "./assets/gentil.png"){
             IAPlay = GoodMinimax(game,true)
         }else{
             IAPlay = BadMinimax(game,true)
