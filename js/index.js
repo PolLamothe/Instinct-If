@@ -74,9 +74,11 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
 toggleDark.addEventListener('click', () => {
     if (toggleDark.checked) {
         root.classList.add("dark_mode")
+        document.querySelector(".mainlogo").style.filter = "invert(0%)"
         document.querySelector(".game-screen").contentWindow.postMessage(darkMode)
     } else {
         root.classList.remove("dark_mode")
+        document.querySelector(".mainlogo").style.filter = "invert(100%)"
         document.querySelector(".game-screen").contentWindow.postMessage(lightMode)
     }
 })

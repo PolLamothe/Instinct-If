@@ -80,8 +80,13 @@ header .material-symbols-rounded:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     gap: 24px;
     font-weight: bold;
+}
+.mainlogo{
+    width: 15vw;
+    margin-bottom: -5vh;
 }
 .title {
     font-size: 30px;
@@ -888,5 +893,8 @@ main {
     }
     #nav-game2{
         display: none;
+    }
+    .mainlogo{
+        margin-left: 150%;
     }
 }
