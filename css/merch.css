@@ -32,3 +32,8 @@
     background-color: white;
     transform: scale(1.1);
 }
+#mainContent{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5vw;
+}
