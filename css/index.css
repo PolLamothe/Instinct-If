@@ -429,6 +429,7 @@ main {
 #connexionPage {
     display: flex;
     gap: 25px;
+    margin-top: 60px;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
@@ -444,8 +445,7 @@ main {
     align-items: center;
     flex-direction: column;
     gap: 10px;
-    width: 60%;
-    padding: 25px 0;
+    padding: 25px 45px;
     font-family: "Lato", sans-serif;
     font-weight: 400;
     font-size: 16px;
@@ -459,9 +459,9 @@ main {
 }
 
 .em{
-    width: 65%;
-    height: 15%;
-    border: 1px solid rgb(204, 203, 203);
+    width: 40vw;
+    max-width: 800px;
+    border: 1px solid  rgb(162, 162, 162);
     border-radius: 35px 35px 35px 35px;
     font-weight: 200;
     transition: border 1s;
@@ -472,12 +472,16 @@ main {
     border: 1px solid #181735;;
 }
 
+.em:focus {
+    outline: 1px solid #181735;
+}
+
 
 
 .error-message {
     color: red;
     font-size: 15px;
-    width: 70%;
+    width: 40vw;
     text-align: center;
     margin-top: 2px;
 }
@@ -485,6 +489,7 @@ main {
 .error-message2 {
     color: red;
     font-size: 15px;
+    width: 40vw;
     text-align: center;
     margin-top: 2px;
 }
@@ -492,6 +497,7 @@ main {
 .error-message3 {
     color: red;
     font-size: 15px;
+    width: 40vw;
     text-align: center;
     margin-top: 2px;
 }
@@ -499,15 +505,16 @@ main {
 #passwordMismatchError {
     color: red;
     font-size: 15px;
+    width: 40vw;
     text-align: center;
     margin-top: -2px;
     margin-bottom: 8px;
 }
 
 .psd {
-    width: 65%;
-    height: 15%;
-    border: 1px solid rgb(204, 203, 203);
+    width: 40vw;
+    max-width: 800px;
+    border: 1px solid rgb(162, 162, 162);
     border-radius: 35px 35px 35px 35px;
     font-weight: 200;
     transition: border 1s;
@@ -518,11 +525,17 @@ main {
     border: 1px solid #181735;;
 }
 
+.psd:focus {
+    border: 1px solid #181735;
+    outline: none;
+}
+
+
 .val {
     padding: 4px 16px;
-    color: rgb(172, 171, 171);
+    color: rgb(255, 255, 255);
     font-size: 24px;
-    font-weight: 200;
+    font-weight: 400;
     background-color: #5b5a81;
     border: 1px solid rgb(255, 255, 255);
     border-radius: 25px 25px 25px 25px;
@@ -531,6 +544,7 @@ main {
 
 .dark_mode .val {
     background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     border: 1px solid rgb(255, 255, 255);
 }
 
@@ -597,7 +611,12 @@ main {
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-    margin-top: 50px;
+    gap: 15px;
+    margin-top: 100px;
+    font-family: "Faster One", system-ui;
+    font-weight: 50;
+    font-style: normal;
+    font-size: 30px;
 }
 
 #newAccountPage form {
@@ -605,22 +624,17 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 2px;
-    width: 70%;
+    gap: 8px;
+    padding: 10px 100px;
     background-color: #ffffff;
     border-radius: 30px; /* Même arrondi que pour la page de connexion */
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
-    font-size: medium;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
 
 }
 
-#newAccountPage h2 {
-    font-size: 30px;
-    font-weight: 50;
-    font-style: normal;
-    font-family: "Faster One", system-ui;
-
-}
 
 #newAccountPage h4 {
     margin-top: 5px;
@@ -636,10 +650,11 @@ main {
 }
 
 .pre, .no, .em2, .psd1, .psd2 {
-    padding: 10px ;
-    width: 60%;
+    padding: 18px;
+    width: 40vw;
+    max-width: 800px;
     border: 1px solid rgb(204, 203, 203);
-    border-radius: 25px;
+    border-radius: 30px;
     font-weight: 200;
     transition: border 1s;
 }
@@ -648,13 +663,18 @@ main {
     border: 1px solid #181735;
 }
 
+.pre:focus, .no:focus, .em2:focus, .psd1:focus, .psd2:focus {
+    border: 1px solid #181735;
+    outline: none;
+}
+
 .ba1, .val2 {
     padding: 8px 16px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    color: rgb(172, 171, 171);
+    margin-bottom: 8px;
+    margin-top: 8px;
+    color: rgb(255, 255, 255);
     font-size: large;
-    font-weight: 200;
+    font-weight: 400;
     background-color: #5b5a81;
     border: 1px solid #ffffff;
     border-radius: 25px;
@@ -674,6 +694,7 @@ main {
 
 .dark_mode .ba1, .dark_mode .val2 {
     background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     border: 1px solid rgb(255, 255, 255);
 }
 
@@ -685,7 +706,7 @@ main {
 
 
 .recie {
-    width: 70%;
+    width: 40vw;
     text-align: center;
     transition: color 0.4s;
 }
@@ -726,7 +747,7 @@ main {
     background-color: #2C2D59;
 }
 
-#mdpForgetPage h2 {
+#mdpForgetPage h1 {
     font-size: 30px;
     font-weight: 50;
     font-style: normal;
