@@ -22,38 +22,55 @@
         <img src="./merch/assets/tshirt1.jpg">
         <p>Super Skin Spike</p>
         <button>Ajouter au panier</button>
+        <div class="noteDiv" note="3">
+        </div>
     </div>
     <div class="itemGlobal">
         <img src="./merch/assets/tshirt1.jpg">
         <p>Super Skin Spike</p>
         <button>Ajouter au panier</button>
+        <div class="noteDiv" note="4">
+        </div>
     </div>
     <div class="itemGlobal">
         <img src="./merch/assets/tshirt1.jpg">
         <p>Super Skin Spike</p>
         <button>Ajouter au panier</button>
+        <div class="noteDiv" note="5">
+        </div>
     </div>
     <div class="itemGlobal">
         <img src="./merch/assets/tshirt1.jpg">
         <p>Super Skin Spike</p>
         <button>Ajouter au panier</button>
+        <div class="noteDiv" note="1">
+        </div>
     </div>
     <div class="itemGlobal">
         <img src="./merch/assets/tshirt1.jpg">
         <p>Super Skin Spike</p>
         <button>Ajouter au panier</button>
+        <div class="noteDiv" note="3">
+        </div>
     </div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
+    for( let i = 0;i<$(".itemGlobal").length;i++){
+        var current = $($(".itemGlobal")[i].children[3])
+        for(let x = 0;x<current.attr("note");x++){
+            current.append('<span class="material-symbols-rounded">star</span>')
+        }
+    }
+
     $('#cloth_input').on("input",()=>{
         let regex = new RegExp("^(\w+)")
         for( let i = 0;i<$(".itemGlobal").length;i++){
             if(!($(".itemGlobal")[i].children[1].innerHTML.toLocaleLowerCase()).startsWith($('#cloth_input').val().toLocaleLowerCase())){
                 $(".itemGlobal")[i].style.display = 'none'
             }else{
-                $(".itemGlobal")[i].style.display = 'inherit'
+                $(".itemGlobal")[i].style.display = 'block'
             }
         }
     })

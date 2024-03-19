@@ -3,6 +3,7 @@
     width: 20vw;
     text-align: center;
     border-radius: 30px;
+    padding-bottom: 4vh;
 }
 .itemGlobal img{
     margin-left: 50%;
@@ -19,7 +20,6 @@
     font-size: 20px;
 }
 .itemGlobal button{
-    margin-bottom: 5vh;
     background-color: lightgreen;
     border: none;
     padding: 1vw;
@@ -36,4 +36,10 @@
     display: flex;
     flex-wrap: wrap;
     gap: 5vw;
+}
+.noteDiv span{
+    color: yellow;
+}
+.noteDiv{
+    margin-top: 2vh;
 }
