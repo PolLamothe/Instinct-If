@@ -69,6 +69,7 @@ header .material-symbols-rounded:hover {
     justify-content: space-around;
     align-items: center;
     padding: 32px 64px;
+    margin-bottom: 24px;
 }
 .theme-toggle {
     position: absolute;
@@ -85,8 +86,9 @@ header .material-symbols-rounded:hover {
     font-weight: bold;
 }
 .mainlogo{
-    width: 15vw;
+    width: 10vw;
     margin-bottom: -5vh;
+    filter: invert(100%);
 }
 .title {
     font-size: 30px;
@@ -111,6 +113,8 @@ main {
 }
 .container {
     padding: 16px 64px;
+    overflow: scroll;
+    height: 85vh;
 }
 
 .git {
@@ -149,8 +153,6 @@ main {
     gap: 32px;
     flex-direction: row;
     flex-wrap: wrap;
-    overflow: scroll;
-    height: 70vh;
     padding: 32px;
 }
 
@@ -252,13 +254,16 @@ main {
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.15);
+    background: #ffffff;
 }
 .dark_mode .card {
     box-shadow: 0 0 16px rgba(255, 255, 255, 0.15);
+    background: #2C2D59;
 }
 .card__img {
     width: 100%;
     height: 70%;
+    min-height: 200px;
 }
 .card__title {
     position: relative;
