@@ -1,0 +1,34 @@
+.itemGlobal{
+    background-color: var(--bg2);
+    width: 20vw;
+    text-align: center;
+    border-radius: 30px;
+}
+.itemGlobal img{
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 4vh;
+    border-radius: 30px;
+    width: 15vw;
+}
+.itemGlobal p{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    text-align: left;
+    margin-left: 2vw;
+    font-size: 20px;
+}
+.itemGlobal button{
+    margin-bottom: 5vh;
+    background-color: lightgreen;
+    border: none;
+    padding: 1vw;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition-duration: 0.5s;
+}
+.itemGlobal button:hover{
+    background-color: white;
+    transform: scale(1.1);
+}

@@ -1,0 +1,40 @@
+<link href="../css/merch.css" rel="stylesheet" type="text/css">
+<div class="home_search">
+    <div class="search__wrapper">
+        <input type="text" name="" placeholder="Rechercher un produit" class="search__field" id="cloth_input">
+        <button type="submit" class="search__icon"><span class="material-symbols-rounded">search</span></button>
+    </div>
+    <div class="settings__wrapper">
+        <div class="note__wrapper">
+            <span class="material-symbols-rounded star">star</span>
+            <label class="note__select">
+                <select name="note_selection" id="note_selection">
+                    <option value="descending">Notes décroissantes</option>
+                    <option value="ascending">Notes croissantes</option>
+                </select>
+                <span class="material-symbols-rounded">expand_more</span>
+            </label>
+        </div>
+    </div>
+</div>
+<div id="mainContent">
+    <div class="itemGlobal">
+        <img src="./merch/assets/tshirt1.jpg">
+        <p>Super Skin Spike</p>
+        <button>Ajouter au panier</button>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $('#cloth_input').on("input",()=>{
+        let regex = new RegExp("^(\w+)")
+        for( let i = 0;i<$(".itemGlobal").length;i++){
+            if(!($(".itemGlobal")[i].children[1].innerHTML.toLocaleLowerCase()).startsWith($('#cloth_input').val().toLocaleLowerCase())){
+                $(".itemGlobal")[i].style.display = 'none'
+            }else{
+                $(".itemGlobal")[i].style.display = 'inherit'
+            }
+        }
+    })
+</script>

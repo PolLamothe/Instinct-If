@@ -2,10 +2,13 @@
 let home = document.querySelector('#home')
 let gamePage = document.querySelector('#game')
 let login = document.querySelector('#login')
+let merch = document.querySelector("#merch")
 
 // Nav
 let navItems = document.querySelectorAll('.nav__item__btn')
 let lastActiveElement = document.querySelector('.nav__item__btn.active')
+
+$('#merch').load("./merch/merch.html")
 
 function switchWindow(w) {
     switch (w.id){
@@ -16,6 +19,7 @@ function switchWindow(w) {
             home.style.display = "block"
             gamePage.style.display = "none"
             login.style.display = 'none'
+            merch.style.display = 'none'
             gameNavChangeState('hide')
             break
         case "nav-game":
@@ -25,6 +29,7 @@ function switchWindow(w) {
             home.style.display = "none"
             gamePage.style.display = "flex"
             login.style.display = 'none'
+            merch.style.display = 'none'
             gameNavChangeState('show')
             break
         case "nav-login":
@@ -34,6 +39,17 @@ function switchWindow(w) {
             home.style.display = "none"
             gamePage.style.display = "none"
             login.style.display = 'block'
+            merch.style.display = 'none'
+            gameNavChangeState('hide')
+            break
+        case "nav-merch":
+            lastActiveElement.classList.remove('active')
+            w.classList.add('active')
+            lastActiveElement = w
+            home.style.display = "none"
+            gamePage.style.display = "none"
+            login.style.display = 'none'
+            merch.style.display = 'block'
             gameNavChangeState('hide')
             break
     }
