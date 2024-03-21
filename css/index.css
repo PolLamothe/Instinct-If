@@ -840,7 +840,7 @@ main {
     background: url("../assets/deminer-2.png") no-repeat center top/cover;
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 900px){
     body{
         flex-direction: column-reverse;
         overflow-x: none;

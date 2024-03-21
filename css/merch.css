@@ -36,10 +36,41 @@
     display: flex;
     flex-wrap: wrap;
     gap: 5vw;
+    justify-content: center;
 }
 .noteDiv span{
     color: yellow;
+    cursor: default;
 }
 .noteDiv{
     margin-top: 2vh;
+}
+@media screen and (max-width: 900px) {
+    .itemGlobal{
+        width: 30vw;
+    }
+    .mainlogo{
+        width: 20vw;
+        margin-left: 200%;
+        transform: translateX(-50%);
+    }
+}
+@media screen and (max-width: 550px) {
+    .itemGlobal{
+        width: 35vw;
+    }
+}
+@media screen and (max-width: 500px) {
+    .itemGlobal{
+        width: 70vw;
+    }
+    .mainlogo{
+        width: 30vw;
+        margin-left: 175%;
+        transform: translateX(-50%);
+    }
+    .itemGlobal img{
+        margin-left: 50%;
+        width: 30vw;
+    }
 }
