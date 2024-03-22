@@ -602,7 +602,14 @@ main {
     color: #ff0000;
 }
 
-
+@media (prefers-color-scheme: dark) {
+    .mainlogo{
+        filter: invert(0%);
+    }
+    .itemGlobal p{
+        color:white;
+    }
+}
 
 
 #newAccountPage {
