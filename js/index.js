@@ -189,3 +189,25 @@ categoryBolt.addEventListener("input", (e) => {
     query()
 })
 
+//-------------------------------
+// Description des jeux
+//-------------------------------
+const closeBtns = document.querySelectorAll(".game_desc .desc_title .material-symbols-rounded")
+const cards = document.querySelectorAll(".card")
+const allDescs = document.querySelectorAll(".game_desc")
+
+cards.forEach(card => {
+    card.addEventListener('click', (e) => {
+        // Close all before opening
+        allDescs.forEach(desc => {
+            desc.style.transform = "translateX(100%)"
+        })
+        document.querySelector(`#${card.id.split("_")[0]}_d`).style.transform = "translateX(0)"
+    })
+})
+
+closeBtns.forEach(btn => {
+    btn.addEventListener('click', (e) =>  {
+        document.querySelector("#" + e.target.dataset.id).style.transform = "translateX(100%)"
+    })
+})

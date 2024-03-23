@@ -95,8 +95,19 @@ function launcher(game) {
 
 allPlayBtn.forEach(btn => {
     btn.addEventListener('click', (e) => {
+        e.stopPropagation()
         if (allGames.includes(e.target.id)) {
             launcher(e.target.id)
+        }
+    })
+})
+
+const playDescBtn = document.querySelectorAll(".desc_play")
+
+playDescBtn.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        if (allGames.includes(e.target.dataset.id)) {
+            launcher(e.target.dataset.id)
         }
     })
 })

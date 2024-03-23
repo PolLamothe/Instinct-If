@@ -249,12 +249,138 @@ main {
     accent-color: var(--bg2);
 }
 
+.game_desc {
+    display: flex;
+    width: 30vw;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: var(--bg2);
+    border-radius: 45px 0 0 45px;
+    padding: 48px;
+    color: #ffffff;
+    z-index: 50;
+    flex-direction: column;
+    gap: 4vh;
+    transform: translateX(100%);
+    transition: all .4s ease-in-out;
+}
+.desc_title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.desc_title h1 {
+    font-size: 32px;
+}
+.desc_title .material-symbols-rounded {
+    transition: all .3s ease-in-out;
+}
+.desc_title .material-symbols-rounded:hover {
+    transform: rotate(45deg);
+}
+.desc_title .material-symbols-rounded {
+    font-size: 32px;
+    cursor: pointer;
+}
+.desc_img {
+    width: 100%;
+    height: 8vh;
+    max-height: 270px;
+    flex-grow: 2;
+    border-radius: 12px;
+}
+.desc_txt {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 30vh;
+}
+.desc_txt p {
+    line-height: 150%;
+    min-height: 8vh;
+    overflow: scroll;
+    flex-basis: 0;
+    flex-shrink: 2;
+    flex-grow: 1;
+}
+.desc_info {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 2vh;
+    color: #000000;
+    flex-shrink: 0;
+}
+.desc_cat {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 50px;
+    padding: 12px 16px;
+}
+.desc_note {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #f7c400;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 50px;
+    padding: 12px 16px;
+}
+.desc_play {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #4CBB17;
+    color: #000000;
+    padding: 16px 0;
+    border-radius: 50px;
+    text-decoration: none;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 20px;
+    box-shadow: 0 0 16px rgba(76, 187, 23, 0.25);
+    transition: all .3s;
+}
+.desc_play .material-symbols-rounded{
+    font-size: 32px;
+}
+.desc_play:hover {
+    transform: scale(1.04);
+    background: #51c719;
+}
+#tetris_d .desc_img {
+    background: url("../assets/Tetris.png") no-repeat center top/cover;
+}
+#deminer_d .desc_img {
+    background: url("../assets/deminer-2.png") no-repeat center top/cover;
+}
+#snake_d .desc_img {
+    background: url("../assets/Snake-2.png") no-repeat center top/cover;
+}
+#tic-tac-toe_d .desc_img {
+    background: url("../assets/Tic-Tac-Toe.png") no-repeat center top/cover;
+}
+#mouse_d .desc_img {
+    background: url("../assets/Mistigri-la-souris.png") no-repeat center top/cover;
+}
+
 .card {
-    width: 27%;
+    width: 30%;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.15);
     background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
 }
 .dark_mode .card {
     box-shadow: 0 0 16px rgba(255, 255, 255, 0.15);
@@ -263,7 +389,8 @@ main {
 .card__img {
     width: 100%;
     height: 70%;
-    min-height: 200px;
+    min-height: 20vh;
+    flex-shrink: 1;
 }
 .card__title {
     position: relative;
