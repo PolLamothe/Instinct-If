@@ -7,13 +7,11 @@
     <div class="settings__wrapper">
         <div class="note__wrapper">
             <span class="material-symbols-rounded star">star</span>
-            <label class="note__select">
-                <select name="note_selection" id="note_selection">
+                <select name="note_selection" id="note_selections" class="note_selection">
                     <option value="descending">Notes décroissantes</option>
                     <option value="ascending">Notes croissantes</option>
                 </select>
-                <span class="material-symbols-rounded">expand_more</span>
-            </label>
+            <span class="material-symbols-rounded">expand_more</span>
         </div>
     </div>
 </div>
@@ -67,10 +65,76 @@
     $('#cloth_input').on("input",()=>{
         let regex = new RegExp("^(\w+)")
         for( let i = 0;i<$(".itemGlobal").length;i++){
-            if(!($(".itemGlobal")[i].children[1].innerHTML.toLocaleLowerCase()).startsWith($('#cloth_input').val().toLocaleLowerCase())){
+            if(!($(".itemGlobal")[i].children[1].innerHTML.toLocaleLowerCase()).includes($('#cloth_input').val().toLocaleLowerCase())){
                 $(".itemGlobal")[i].style.display = 'none'
             }else{
                 $(".itemGlobal")[i].style.display = 'block'
+            }
+        }
+    })
+
+    function sortItems(array){
+        for (let i = 0;i<array.length-1;i++){
+            var current = $(array[i]).children()[3]
+            var note = $(current).attr("note")
+            if($($(array[i+1]).children()[3]).attr("note") < note){
+                var temp = array[i+1].cloneNode(true)
+                array[i+1] = array[i].cloneNode(true)
+                array[i] = temp.cloneNode(true)
+                return sortItems(array)
+            }
+        }
+        return array
+    }
+
+    function moveChoiceTo(elem_choice) {
+
+        var span = elem_choice,
+            td = span.parentNode;
+        var clone = span.cloneNode(true)
+
+        td.insertBefore(clone, span.previousElementSibling);
+        span.remove()
+    }
+
+    function getNote(element){
+        return $($(element).children()[3]).attr("note")
+    }
+
+    function reverseArray(array){
+        for(let i = 1;i<=array.length/2;i++){
+            let temp = array[array.length-i]
+            array[array.length-i] = array[i-1]
+            array[i-1] = temp
+        }
+        return array
+    }
+
+    $("#note_selections").on("input",()=>{
+        var allItems = $(".itemGlobal")
+        allItems = sortItems(allItems)
+        console.log(allItems)
+        var normalCollection = document.getElementById("note_selections");
+        if(normalCollection.value == "descending"){
+            allItems = reverseArray(allItems)
+        }
+        console.log(allItems)
+        let modified = true
+        while(modified){
+            modified = false
+            for(let i = 0;i<$(".itemGlobal").length && !modified;i++){
+                if(getNote($(".itemGlobal")[i]) != getNote(allItems[i])){
+                    var before = false
+                    for(let x = 0;x<i && !before;x++){
+                        if(getNote($(".itemGlobal")[i]) == getNote($(".itemGlobal")[x])){
+                            before = true
+                        }
+                    }
+                    if(!before){
+                        moveChoiceTo($(".itemGlobal")[i],-1)
+                        modified = true
+                    }
+                }
             }
         }
     })

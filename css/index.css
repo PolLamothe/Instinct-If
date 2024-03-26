@@ -220,7 +220,7 @@ main {
     top: 50%;
     transform: translateY(-50%);
 }
-#note_selection {
+.note_selection {
     color: inherit;
     font-size: 16px;
     border: none;
@@ -234,7 +234,7 @@ main {
     transition: .2s;
     width: max-content;
 }
-#note_selection:hover {
+.note_selection:hover {
     background: rgba(0, 0, 0, 0.1);
 }
 .cat__choose {
