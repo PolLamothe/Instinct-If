@@ -14,6 +14,7 @@ let allGames = [
 let frameLauncher = document.querySelector('.game-screen')
 let gameSelect = document.querySelector('#game-selection')
 let allPlayBtn = document.querySelectorAll(".play")
+const noGame = document.querySelector(".no_game")
 
 let gameNav = document.querySelector('.game_nav')
 
@@ -66,18 +67,23 @@ gameSelect.onchange = (e) => {
 // Fullscreen
 gameNavFS.addEventListener('click', () => {
     gamePage.classList.toggle('fullscreen')
-    gameNavChangeState('show')
     gameNvPin = true
     if (gamePage.classList.contains('fullscreen')) {
         gameNavFS.innerText = "fullscreen_exit"
+        gameNavChangeState('show')
     } else {
         gameNavFS.innerText = "fullscreen"
+        gameNavChangeState('hide')
     }
     frameLauncher.focus()
 })
 
 // Launcher in iframe
 function launcher(game) {
+    if (!gameRunning) {
+        noGame.style.display = "none"
+        frameLauncher.style.display = "block"
+    }
     gameRunning = true
     if (gameSelected !== game) {
         gameSelected = game
@@ -105,6 +111,16 @@ allPlayBtn.forEach(btn => {
 const playDescBtn = document.querySelectorAll(".desc_play")
 
 playDescBtn.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        if (allGames.includes(e.target.dataset.id)) {
+            launcher(e.target.dataset.id)
+        }
+    })
+})
+
+const listPlayBtn = document.querySelectorAll(".list_game span")
+
+listPlayBtn.forEach(btn => {
     btn.addEventListener('click', (e) => {
         if (allGames.includes(e.target.dataset.id)) {
             launcher(e.target.dataset.id)

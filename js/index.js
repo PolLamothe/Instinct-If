@@ -30,7 +30,7 @@ function switchWindow(w) {
             gamePage.style.display = "flex"
             login.style.display = 'none'
             merch.style.display = 'none'
-            gameNavChangeState('show')
+            gameNavChangeState('hide')
             break
         case "nav-login":
             lastActiveElement.classList.remove('active')
