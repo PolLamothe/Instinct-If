@@ -391,6 +391,7 @@ main {
     height: 70%;
     min-height: 20vh;
     flex-shrink: 1;
+    background: url("../assets/lorem.avif") no-repeat center top/cover;
 }
 .card__title {
     position: relative;

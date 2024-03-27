@@ -115,13 +115,15 @@ let allGamesCards = document.querySelectorAll(".card")
 const bestGames = document.querySelector(".bestGames")
 
 allGamesCards.forEach(game => {
-    let gameInfos = {
-        name: document.querySelector(`#${game.id} .card__game__title`).innerText,
-        note: parseInt(document.querySelector(`#${game.id} .card__note__number`).innerText),
-        category: document.querySelector(`#${game.id} .card__title__left .material-symbols-rounded`).innerText,
-        element: game
+    if (game.id !== "") {
+        let gameInfos = {
+            name: document.querySelector(`#${game.id} .card__game__title`).innerText,
+            note: parseInt(document.querySelector(`#${game.id} .card__note__number`).innerText),
+            category: document.querySelector(`#${game.id} .card__title__left .material-symbols-rounded`).innerText,
+            element: game
+        }
+        gameList.push(gameInfos)
     }
-    gameList.push(gameInfos)
 })
 
 function gameSortAscending(a, b) {
