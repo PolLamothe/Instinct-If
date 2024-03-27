@@ -12,6 +12,12 @@
     border-radius: 30px;
     width: 15vw;
 }
+.prix{
+    font-size: 28px!important;
+    text-align: center!important;
+    margin-left: 0px!important;
+    font-weight: bold;
+}
 .itemGlobal p{
     margin-top: 2vh;
     margin-bottom: 2vh;

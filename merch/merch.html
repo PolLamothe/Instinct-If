@@ -23,6 +23,7 @@
             <button>Ajouter au panier</button>
             <input type="number" value="1" class="item_nb">
         </div>
+        <p class="prix">20 €</p>
         <div class="noteDiv" note="3">
         </div>
     </div>
@@ -33,6 +34,7 @@
             <button>Ajouter au panier</button>
             <input type="number" value="1" class="item_nb">
         </div>
+        <p class="prix">40 €</p>
         <div class="noteDiv" note="4">
         </div>
     </div>
@@ -43,6 +45,7 @@
             <button>Ajouter au panier</button>
             <input type="number" value="1" class="item_nb">
         </div>
+        <p class="prix">25 €</p>
         <div class="noteDiv" note="5">
         </div>
     </div>
@@ -53,6 +56,7 @@
             <button>Ajouter au panier</button>
             <input type="number" value="1" class="item_nb">
         </div>
+        <p class="prix">20 €</p>
         <div class="noteDiv" note="1">
         </div>
     </div>
@@ -63,6 +67,7 @@
             <button>Ajouter au panier</button>
             <input type="number" value="1" class="item_nb">
         </div>
+        <p class="prix">15 €</p>
         <div class="noteDiv" note="3">
         </div>
     </div>
@@ -73,6 +78,7 @@
             <button>Ajouter au panier</button>
             <input type="number" value="1" class="item_nb">
         </div>
+        <p class="prix">15 €</p>
         <div class="noteDiv" note="3">
         </div>
     </div>
@@ -80,8 +86,10 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
+    const starPosition = 4
+
     for( let i = 0;i<$(".itemGlobal").length;i++){
-        var current = $($(".itemGlobal")[i].children[3])
+        var current = $($(".itemGlobal")[i].children[starPosition])
         for(let x = 0;x<current.attr("note");x++){
             current.append('<span class="material-symbols-rounded">star</span>')
         }
@@ -100,9 +108,9 @@
 
     function sortItems(array){
         for (let i = 0;i<array.length-1;i++){
-            var current = $(array[i]).children()[3]
+            var current = $(array[i]).children()[starPosition]
             var note = $(current).attr("note")
-            if($($(array[i+1]).children()[3]).attr("note") < note){
+            if($($(array[i+1]).children()[starPosition]).attr("note") < note){
                 var temp = array[i+1].cloneNode(true)
                 array[i+1] = array[i].cloneNode(true)
                 array[i] = temp.cloneNode(true)
@@ -123,7 +131,7 @@
     }
 
     function getNote(element){
-        return $($(element).children()[3]).attr("note")
+        return $($(element).children()[starPosition]).attr("note")
     }
 
     function reverseArray(array){
