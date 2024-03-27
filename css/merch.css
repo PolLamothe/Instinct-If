@@ -46,6 +46,22 @@
 .noteDiv{
     margin-top: 2vh;
 }
+.item_buy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+.item_nb {
+    width: 64px;
+    height: 32px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    padding: 4px 8px;
+    font-size: 16px;
+}
+
 @media screen and (max-width: 900px) {
     .itemGlobal{
         width: 30vw;
