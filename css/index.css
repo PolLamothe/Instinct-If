@@ -639,7 +639,6 @@ main {
     max-width: 800px;
     border: 1px solid  rgb(162, 162, 162);
     border-radius: 35px 35px 35px 35px;
-    font-weight: 200;
     transition: border 1s;
     font-size: 16px;
 }
@@ -692,7 +691,6 @@ main {
     max-width: 800px;
     border: 1px solid rgb(162, 162, 162);
     border-radius: 35px 35px 35px 35px;
-    font-weight: 200;
     transition: border 1s;
     font-size: 16px;
 }
@@ -740,7 +738,6 @@ main {
     color: #000000;
     text-decoration: none;
     transition: color 0.4s;
-    margin-bottom: -5px;
 }
 
 .mdpflien:hover {
@@ -814,7 +811,7 @@ main {
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 20px;
 
 }
 
@@ -838,9 +835,9 @@ main {
     max-width: 800px;
     border: 1px solid rgb(204, 203, 203);
     border-radius: 30px;
-    font-weight: 200;
     transition: border 1s;
 }
+
 
 .pre:hover, .no:hover, .em2:hover, .psd1:hover, .psd2:hover {
     border: 1px solid #181735;
@@ -856,12 +853,13 @@ main {
     margin-bottom: 8px;
     margin-top: 8px;
     color: rgb(255, 255, 255);
-    font-size: large;
+    font-size: 24px;
     font-weight: 400;
     background-color: #5b5a81;
     border: 1px solid #ffffff;
     border-radius: 25px;
     transition: background-color 0.6s, color 0.6s;
+    cursor: pointer;
 }
 
 .val2{
@@ -891,7 +889,9 @@ main {
 .recie {
     width: 40vw;
     text-align: center;
+    font-size: 15px;
     transition: color 0.4s;
+    cursor: pointer;
 }
 
 .recie:hover {
@@ -908,6 +908,7 @@ main {
 
 #mdpForgetPage {
     gap: 25px;
+    margin-top: 30px;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
@@ -916,14 +917,16 @@ main {
 #mdpForgetPage form {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
     width: 55%;
     height: 100%;
     gap: 40px;
     background-color: #ffffff;
     border-radius: 30px 30px 30px 30px;
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
-    font-size: medium;
+    font-size: 18px;
 }
 
 .dark_mode #mdpForgetPage form {
@@ -931,8 +934,7 @@ main {
 }
 
 #mdpForgetPage h1 {
-    font-size: 30px;
-    font-weight: 50;
+    font-size: 45px;
     font-style: normal;
     font-family: "Faster One", system-ui;
 
@@ -946,10 +948,9 @@ main {
 .em1{
     width: 85%;
     height: 15%;
-    margin-left: 30px;
     border: 1px solid rgb(204, 203, 203);
     border-radius: 30px 30px 30px 30px;
-    font-weight: 200;
+    font-size: 16px;
     transition: border 1s;
 }
 
@@ -959,14 +960,14 @@ main {
 
 .ba{
     padding: 6px 20px;
-    margin-bottom: 40px;
-    color: rgb(172, 171, 171);
+    color: rgb(255, 255, 255);
     font-size: 24px;
-    font-weight: 200;
+    font-weight: 400;
     background-color: #5b5a81;
     border: 1px solid #ffffff;
     border-radius: 35px 35px 35px 35px;
     transition: background-color 0.6s, color 0.6s;
+    cursor: pointer;
 }
 
 .ba:hover{
@@ -976,15 +977,14 @@ main {
 
 .val1 {
     padding: 6px 20px;
-    margin-bottom: 40px;
-    margin-left: 5px;
-    color: rgb(172, 171, 171);
+    color: rgb(255, 255, 255);
     font-size: 24px;
-    font-weight: 200;
+    font-weight: 400;
     background-color: #5b5a81;
     border: 1px solid #ffffff;
     border-radius: 40px 40px 40px 40px;
-    transition: background-color 0.6s color 0.6s;
+    transition: background-color 0.6s, color 0.6s;
+    cursor: pointer;
 }
 
 .val1:hover{
@@ -995,12 +995,19 @@ main {
 .dark_mode .ba, .dark_mode .val1 {
     background-color: rgb(255, 255, 255);
     border: 1px solid rgb(255, 255, 255);
+    color: #000000;
 }
 
 .dark_mode .ba:hover, .dark_mode .val1:hover {
     background-color: #181735;
     color: white;
     border: 1px solid #181735;
+}
+
+#spe {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 /*
