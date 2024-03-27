@@ -409,6 +409,7 @@ function updatePiece(){
                     tempData[i].push(middle+x+(line*i))
                     if(ground[middle+x+(line*i)] != undefined){
                         $('#playAgainDiv').css('display','inherit')
+                        gameState = false
                         return
                     }
                 }else{
@@ -513,9 +514,11 @@ function resetGame() {
     count = 0
     piecePlaced = 0
     tempAmount = 6
-    $('#playAgainDiv').css('display','none')
     eareaseAll()
     setGameState(true)
+    nextPieceValue = -1
+    gameState = true
+    $('#playAgainDiv').css('display','none')
 }
 $('#rejouerButton').click(function(){
     resetGame()
