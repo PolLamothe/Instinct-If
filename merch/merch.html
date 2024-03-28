@@ -143,7 +143,7 @@
         return array
     }
 
-    $("#note_selections").on("input",()=>{
+    $("#note_selections").on("change",()=>{
         var allItems = $(".itemGlobal")
         allItems = sortItems(allItems)
         console.log(allItems)
@@ -171,4 +171,6 @@
             }
         }
     })
+
+    $("#note_selections").change()
 </script>
