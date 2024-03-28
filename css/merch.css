@@ -4,6 +4,7 @@
     text-align: center;
     border-radius: 30px;
     padding-bottom: 4vh;
+    box-shadow: 0 0 32px rgba(0, 0, 0, 0.20);
 }
 .itemGlobal img{
     margin-left: 50%;
@@ -12,17 +13,23 @@
     border-radius: 30px;
     width: 15vw;
 }
+.info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    padding: 0 32px;
+    margin-bottom: 16px;
+}
 .prix{
     font-size: 28px!important;
     text-align: center!important;
-    margin-left: 0px!important;
     font-weight: bold;
+    margin: 0!important;
 }
 .itemGlobal p{
-    margin-top: 2vh;
-    margin-bottom: 2vh;
+    margin: 16px 24px;
     text-align: left;
-    margin-left: 2vw;
     font-size: 20px;
     color: white!important;
 }
@@ -37,7 +44,7 @@
 }
 .itemGlobal button:hover{
     background-color: white;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 #mainContent{
     display: flex;
@@ -46,11 +53,8 @@
     justify-content: center;
 }
 .noteDiv span{
-    color: yellow;
+    color: #f7c400;
     cursor: default;
-}
-.noteDiv{
-    margin-top: 2vh;
 }
 .item_buy {
     display: flex;
